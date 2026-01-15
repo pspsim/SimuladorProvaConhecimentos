@@ -16,7 +16,7 @@
 </head>
 <body>
 <header style="
-    background-color: #003366;          /* dark PSP blue base */
+    background-color: #003366;          /* dark PSP blue */
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
@@ -27,50 +27,62 @@
     align-items: center;
     font-weight: bold;
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 ">
-    <div style="font-size: 2.9rem; letter-spacing: 1.2px; text-transform: uppercase; z-index: 2;">SIMULADOR PSP</div>
+    <div style="font-size: 2.8rem; letter-spacing: 1px; text-transform: uppercase; z-index: 2;">SIMULADOR PSP</div>
     <div style="
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         font-style: italic;
-        margin-top: 6px;
+        margin-top: 8px;
         text-align: center;
-        max-width: 85%;
-        opacity: 0.95;
+        max-width: 90%;
         z-index: 2;
     ">
         Simulação da Prova de Conhecimentos da Polícia de Segurança Pública
     </div>
 
-    <!-- Three thin white diagonal stripes – inverse PSP vehicle style (white on dark blue) -->
+    <!-- Exactly THREE thin white diagonal stripes – PSP patrol car inspired -->
     <div style="
         position: absolute;
-        inset: 0;
-        overflow: hidden;
-        pointer-events: none;
+        top: 0;
+        right: 0;
+        width: 140px;
+        height: 100%;
     ">
+        <!-- Stripe 1 (rightmost) -->
         <div style="
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                135deg,              /* 135° for bottom-left to top-right diagonal flow */
-                transparent 0%,
-                transparent 20px,
-                rgba(255,255,255,0.9) 20px,
-                rgba(255,255,255,0.9) 26px,   /* thin white stripe ~6px */
-                transparent 26px,
-                transparent 46px,
-                rgba(255,255,255,0.9) 46px,
-                rgba(255,255,255,0.9) 52px,
-                transparent 52px,
-                transparent 72px,
-                rgba(255,255,255,0.9) 72px,
-                rgba(255,255,255,0.9) 78px,
-                transparent 78px
-            );
-            opacity: 0.75;           /* semi-transparent for that reflective/stylized look */
-            transform: skewX(-10deg); /* slight skew to match angled vehicle perspective if needed – remove if too much */
+            width: 10px;                /* thin like car markings */
+            height: 180%;
+            background: white;
+            transform: rotate(45deg);
+            transform-origin: top right;
+            right: 10px;
+            top: -40%;
+            opacity: 0.8;
+        "></div>
+        <!-- Stripe 2 (middle) -->
+        <div style="
+            position: absolute;
+            width: 10px;
+            height: 180%;
+            background: white;
+            transform: rotate(45deg);
+            transform-origin: top right;
+            right: 35px;                /* ~25px spacing */
+            top: -40%;
+            opacity: 0.8;
+        "></div>
+        <!-- Stripe 3 (leftmost in group) -->
+        <div style="
+            position: absolute;
+            width: 10px;
+            height: 180%;
+            background: white;
+            transform: rotate(45deg);
+            transform-origin: top right;
+            right: 60px;
+            top: -40%;
+            opacity: 0.8;
         "></div>
     </div>
 </header>
