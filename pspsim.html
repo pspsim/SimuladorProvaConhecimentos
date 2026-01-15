@@ -4,73 +4,25 @@
 <meta charset="UTF-8">
 <title>Simulador PSP</title>
 <style>
-  body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
-  h1, h2 { text-align: center; margin: 10px 0; }
-  .topic-title { font-size: 1.5rem; margin-top: 20px; font-weight: bold; color: #003366; text-align: left; }
-  .question { margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background: white; }
-  .options { margin-top: 8px; }
-  .options label { display: block; margin-bottom: 5px; cursor: pointer; }
-  #timer { font-size: 22px; font-weight: bold; text-align: center; margin-bottom: 20px; color: #003366; }
-  #submit { display: block; margin: 20px auto; padding: 10px 20px; font-size: 16px; background: #003366; color: white; border: none; border-radius: 5px; cursor: pointer; }
-  #submit:hover { background: #0055a5; }
+  body { font-family: Arial, sans-serif; margin: 20px; background: #f0f0f0; }
+  header { background-color: #003366; color: white; position: relative; height: 140px; display: flex; flex-direction: column; justify-content: center; align-items: center; font-weight: bold; overflow: hidden; }
+  header .title { font-size: 2.8rem; letter-spacing: 1px; text-transform: uppercase; z-index: 2; }
+  header .subtitle { font-size: 1.05rem; font-style: italic; margin-top: 8px; text-align: center; max-width: 90%; z-index: 2; }
+  header .stripes { position: absolute; bottom: -60px; right: -20px; width: 240px; height: 300px; transform-origin: bottom right; transform: rotate(17deg); pointer-events: none; background: linear-gradient(to right, #003366 0%, #003366 30%, white 30%, white 38%, #003366 38%, #003366 48%, white 48%, white 55%, #003366 55%, #003366 65%, white 65%, white 72%, #003366 72%, #003366 100%); }
+  h2 { margin-top: 30px; color: #003366; border-bottom: 2px solid #003366; padding-bottom: 5px; }
+  .question { margin-bottom: 20px; padding: 10px; background: white; border-radius: 5px; }
+  .options label { display: block; margin-bottom: 5px; }
+  #timer { font-size: 20px; font-weight: bold; text-align: center; margin: 20px 0; }
+  #submit { display: block; margin: 20px auto; padding: 10px 20px; font-size: 16px; }
   #result { margin-top: 20px; font-size: 18px; font-weight: bold; text-align: center; }
 </style>
 </head>
 <body>
 
-<header style="
-    background-color: #003366;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    position: relative;
-    height: 140px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    overflow: hidden;
-">
-    <div style="font-size: 2.8rem; letter-spacing: 1px; text-transform: uppercase; z-index: 2;">
-        SIMULADOR PSP
-    </div>
-    <div style="
-        font-size: 1.05rem;
-        font-style: italic;
-        margin-top: 8px;
-        text-align: center;
-        max-width: 90%;
-        z-index: 2;
-    ">
-        Simulação da Prova de Conhecimentos da Polícia de Segurança Pública
-    </div>
-    <div style="
-        position: absolute;
-        bottom: -60px;
-        right: -20px;
-        width: 240px;
-        height: 300px;
-        transform-origin: bottom right;
-        transform: rotate(17deg);
-        pointer-events: none;
-        background: linear-gradient(
-            to right,
-            #003366 0%,
-            #003366 30%,
-            white 30%,
-            white 38%,
-            #003366 38%,
-            #003366 48%,
-            white 48%,
-            white 55%,
-            #003366 55%,
-            #003366 65%,
-            white 65%,
-            white 72%,
-            #003366 72%,
-            #003366 100%
-        );
-    "></div>
+<header>
+  <div class="title">SIMULADOR PSP</div>
+  <div class="subtitle">Simulação da Prova de Conhecimentos da Polícia de Segurança Pública</div>
+  <div class="stripes"></div>
 </header>
 
 <div id="timer">02:00:00</div>
@@ -79,126 +31,128 @@
 <div id="result"></div>
 
 <script>
-// ====== CONFIGURAÇÃO DAS PERGUNTAS ======
-// topic: número do tópico
-// q: pergunta
-// options: array de 4 opções
-// answer: letra da correta (A/B/C/D)
-const questions = [
-  // Tópico 1
-  {topic:1, q:"Qual é a capital de Portugal?", options:["Porto","Lisboa","Coimbra","Todas as anteriores"], answer:"B"},
-  {topic:1, q:"Qual é o maior rio de Portugal?", options:["Tejo","Douro","Guadiana","Todas as anteriores"], answer:"A"},
-  // Tópico 2
-  {topic:2, q:"Quem é o presidente da Comissão Europeia?", options:["Ursula von der Leyen","Jean-Claude Juncker","Angela Merkel","Todas as anteriores"], answer:"A"},
-  {topic:2, q:"Qual é a moeda da UE?", options:["Euro","Libra","Dólar","Todas as anteriores"], answer:"A"},
-  // Tópico 3
-  {topic:3, q:"A PSP é uma força de segurança de que país?", options:["Portugal","Espanha","França","Todas as anteriores"], answer:"A"},
-  {topic:3, q:"O estatuto da PSP foi publicado em que ano?", options:["2015","2010","2000","Todas as anteriores"], answer:"A"},
-  // Tópico 4
-  {topic:4, q:"O que significa a sigla INEM?", options:["Instituto Nacional de Emergência Médica","Instituto Nacional de Ensino Militar","Instituto Nacional de Estudos Marítimos","Todas as anteriores"], answer:"A"},
-  {topic:4, q:"O que é a GNR?", options:["Guarda Nacional Republicana","Grupo Nacional de Resgate","Grupo Nacional de Rebeldes","Todas as anteriores"], answer:"A"},
-  // Tópico 5
-  {topic:5, q:"Quem é o atual Presidente da República Portuguesa?", options:["Marcelo Rebelo de Sousa","Aníbal Cavaco Silva","Jorge Sampaio","Todas as anteriores"], answer:"A"},
-  {topic:5, q:"O que é o Tribunal Constitucional?", options:["Um tribunal de revisão constitucional","Um tribunal de contabilidade","Um tribunal de crimes","Todas as anteriores"], answer:"A"},
-  // Tópico 6
-  {topic:6, q:"Qual é o dia da implantação da República Portuguesa?", options:["5 de Outubro","1 de Janeiro","25 de Abril","Todas as anteriores"], answer:"A"},
-  {topic:6, q:"Em que ano Portugal entrou para a UE?", options:["1986","1999","2004","Todas as anteriores"], answer:"A"},
-  // Tópico 7
-  {topic:7, q:"O que é a Declaração Universal dos Direitos Humanos?", options:["Um documento que define direitos humanos fundamentais","Um livro de história","Uma constituição de Portugal","Todas as anteriores"], answer:"A"},
-  {topic:7, q:"Quando foi assinada a Declaração Universal dos Direitos Humanos?", options:["1948","1950","1960","Todas as anteriores"], answer:"A"}
+// =================== DADOS ===================
+const topicsData = [
+  { name: "Tópico 1: Portugal", questions: [
+    { q:"Qual é a capital de Portugal?", options:["Porto","Lisboa","Coimbra","Todas as anteriores"], answer:"B" },
+    { q:"Qual é o maior rio de Portugal?", options:["Tejo","Douro","Guadiana","Todas as anteriores"], answer:"A" }
+  ]},
+  { name: "Tópico 2: União Europeia", questions: [
+    { q:"Qual é a moeda da UE?", options:["Euro","Libra","Dólar","Todas as anteriores"], answer:"A" },
+    { q:"Quem preside à Comissão Europeia?", options:["Ursula von der Leyen","Merkel","Juncker","Todas as anteriores"], answer:"A" }
+  ]},
+  { name: "Tópico 3: PSP", questions: [
+    { q:"A PSP é força de segurança de que país?", options:["Portugal","Espanha","França","Todas as anteriores"], answer:"A" }
+  ]},
+  { name: "Tópico 4: Legislação", questions: [
+    { q:"Idade mínima para entrar na PSP?", options:["18","20","21","Todas as anteriores"], answer:"A" }
+  ]},
+  { name: "Tópico 5: Cultura Geral", questions: [
+    { q:"Ponto mais alto de Portugal?", options:["Serra da Estrela","Pico","Montejunto","Todas as anteriores"], answer:"B" }
+  ]},
+  { name: "Tópico 6: Direitos", questions: [
+    { q:"Direitos humanos incluem?", options:["Liberdade","Vida","Ambos","Todas as anteriores"], answer:"C" }
+  ]},
+  { name: "Tópico 7: Atualidades", questions: [
+    { q:"País com maior PIB per capita?", options:["Luxemburgo","Suíça","Noruega","Todas as anteriores"], answer:"A" }
+  ]}
 ];
 
-// ====== FUNÇÃO PARA EMBARALHAR ======
-function shuffleArray(arr) {
-  for (let i = arr.length -1; i>0; i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+// =================== UTIL ===================
+function shuffle(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
   }
   return arr;
 }
 
-// ====== CRIAR FORMULÁRIO ======
+// =================== GERAR TESTE ===================
 const quizForm = document.getElementById("quizForm");
-const topics = [1,2,3,4,5,6,7];
+const testQuestions = [];
 
-topics.forEach(t => {
-  const topicTitle = document.createElement("div");
-  topicTitle.className = "topic-title";
-  topicTitle.textContent = `Tópico ${t}`;
-  quizForm.appendChild(topicTitle);
+topicsData.forEach((topic,tIdx)=>{
+  const h2=document.createElement("h2");
+  h2.textContent=topic.name;
+  quizForm.appendChild(h2);
 
-  const filtered = questions.filter(q=>q.topic===t);
-  const selectedQuestions = shuffleArray(filtered).slice(0,2); // 2 perguntas por tópico
+  topic.questions.forEach((q,qIdx)=>{
+    const div=document.createElement("div");
+    div.className="question";
 
-  selectedQuestions.forEach((q, idx)=>{
-    const div = document.createElement("div");
-    div.className = "question";
-    div.innerHTML = `<p>${q.q}</p>`;
+    const p=document.createElement("p");
+    p.textContent=q.q;
+    div.appendChild(p);
 
-    let opts = [...q.options];
-    const todasIndex = opts.findIndex(o=>o.startsWith("Todas"));
-    let todasOption;
+    let opts=[...q.options];
+    const todasIndex=opts.findIndex(o=>o.startsWith("Todas"));
+    let todas;
     if(todasIndex!==-1){
-      todasOption = opts.splice(todasIndex,1)[0];
-      opts = shuffleArray(opts);
-      opts.push(todasOption); // "Todas" sempre D
-    } else {
-      opts = shuffleArray(opts);
-    }
+      todas=opts.splice(todasIndex,1)[0];
+      shuffle(opts);
+      opts.push(todas);
+    } else shuffle(opts);
 
     opts.forEach((opt,i)=>{
-      const label = document.createElement("label");
-      const radio = document.createElement("input");
-      radio.type = "radio";
-      radio.name = `q${t}-${idx}`; // garantir nome único
-      radio.value = String.fromCharCode(65+i);
-
-      // marcar correta
-      radio.dataset.correct = (radio.value===q.answer) ? "true" : "false";
-
-      label.appendChild(radio);
-      label.appendChild(document.createTextNode(` ${String.fromCharCode(65+i)}) ${opt}`));
+      const label=document.createElement("label");
+      label.innerHTML=`${String.fromCharCode(65+i)}) 
+        <input type="radio" name="q_${testQuestions.length}" value="${String.fromCharCode(65+i)}"> ${opt}`;
       div.appendChild(label);
     });
 
     quizForm.appendChild(div);
+
+    // ⭐ AQUI ESTÁ A PARTE CRÍTICA QUE FALTAVA
+    testQuestions.push({
+      name: `q_${testQuestions.length}`,
+      correct: q.answer,
+      options: opts,
+      div: div
+    });
   });
 });
 
-// ====== TIMER ======
-let time = 2*60*60;
-const timerDiv = document.getElementById("timer");
-function updateTimer(){
-  const h = String(Math.floor(time/3600)).padStart(2,'0');
-  const m = String(Math.floor((time%3600)/60)).padStart(2,'0');
-  const s = String(time%60).padStart(2,'0');
-  timerDiv.textContent = `${h}:${m}:${s}`;
-  if(time<=0){
-    clearInterval(timerInterval);
-    submitTest();
-  }
-  time--;
-}
-const timerInterval = setInterval(updateTimer,1000);
+// =================== TIMER ===================
+let time=2*60*60;
+const timerDiv=document.getElementById("timer");
+const timer=setInterval(()=>{
+  const h=String(Math.floor(time/3600)).padStart(2,'0');
+  const m=String(Math.floor((time%3600)/60)).padStart(2,'0');
+  const s=String(time%60).padStart(2,'0');
+  timerDiv.textContent=`${h}:${m}:${s}`;
+  if(time--<=0){clearInterval(timer);submitTest();}
+},1000);
 
-// ====== SUBMETER E CALCULAR NOTA ======
+// =================== SUBMETER ===================
 function submitTest(){
-  let scoreCount = 0;
-  const allInputs = document.querySelectorAll('input[type="radio"]');
-  allInputs.forEach(input=>{
-    if(input.checked && input.dataset.correct==="true") scoreCount++;
+  let correctCount=0;
+
+  testQuestions.forEach(q=>{
+    const selected=document.querySelector(`input[name="${q.name}"]:checked`);
+    q.div.style.border="2px solid #ccc";
+
+    if(selected){
+      if(selected.value===q.correct){
+        correctCount++;
+        q.div.style.border="2px solid green";
+      } else {
+        q.div.style.border="2px solid red";
+      }
+    } else {
+      q.div.style.border="2px solid orange";
+    }
   });
-  const totalQuestions = document.querySelectorAll('.question').length;
-  const finalScore = (scoreCount / totalQuestions)*20;
-  document.getElementById("result").textContent = 
-    `Acertaste ${scoreCount}/${totalQuestions} perguntas. Nota final: ${finalScore.toFixed(2)}/20`;
+
+  const grade=(correctCount/testQuestions.length)*20;
+  document.getElementById("result").textContent=
+    `Acertaste ${correctCount}/${testQuestions.length} — Nota: ${grade.toFixed(2)}/20`;
 }
 
-document.getElementById("submit").addEventListener("click", e=>{
+document.getElementById("submit").onclick=e=>{
   e.preventDefault();
-  clearInterval(timerInterval);
+  clearInterval(timer);
   submitTest();
-});
+};
 </script>
 </body>
 </html>
