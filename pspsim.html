@@ -33,16 +33,125 @@
 <script>
 // ===================== ARRAY DE PERGUNTAS =====================
 const questionsData = [
-  { "id": 1, "topic": "I", "question": "“Uma Polícia <b><u>integral</u></b>, <b><u>humana</u></b>, <b><u>forte</u></b>, <b><u>coesa</u></b> e ao serviço do cidadão.” As palavras sublinhadas são…", "options": ["sinónimas", "antónimas", "adjetivos", "advérbios"], "correct": "adjetivos" },
-  { "id": 2, "topic": "I", "question": "“A PSP depende do membro do Governo responsável pela Administração Interna.” Qual é o sujeito da frase?", "options": ["\"A PSP...\"", "\"...pela Administração Interna”\"", "\"…do membro do Governo…\"", "\"…do membro do Governo responsável pela Administração Interna\""], "correct": "\"A PSP...\"", },
-  { "id": 3, "topic": "I", "question": "Qual das seguintes frases não tem erros quanto aos acentos gráficos?", "options": ["O policia pára há porta da esquadra", "Na esquadra à diversas valências políciaís", "Há na Polícia oportunidades de carreira", "Todas as hipóteses acima estão erradas"], "correct": "Há na Polícia oportunidades de carreira" },
-  { "id": 4, "topic": "II", "question": "Qual das seguintes instituições não é uma força de segurança ou Polícia?", "options": ["Polícia de Segurança Pública", "Guarda Nacional Republicana", "Polícia Judiciária", "Serviço de Informações Estratégicas de Defesa"], "correct": "Serviço de Informações Estratégicas de Defesa" },
-  { "id": 5, "topic": "II", "question": "Qual dos seguintes crimes é o mais participado em Portugal, segundo o Relatório Anual de Segurança Interna de 2024?", "options": ["Estacionamento abusivo", "Violência doméstica", "Homicídio", "Condução de veículos automóveis com velocidade excessiva"], "correct": "Violência doméstica" },
-  { "id": 6, "topic": "III", "question": "O processo criminal assegura…", "options": ["algumas garantias de defesa, dependendo da capacidade económica dos interessados", "todas as garantias de defesa, incluindo o recurso ao Provedor de Justiça", "todas as garantias de defesa, incluindo o recurso", "todas as garantias, exceto o recurso"], "correct": "todas as garantias de defesa, incluindo o recurso" },
-  { "id": 7, "topic": "IV", "question": "A DUDH, concretamente no seu artigo 5.º, proíbe…", "options": ["a prisão com culpa formada e tratamentos cruéis, a todos os portugueses de origem ou por adoção", "a tortura, penas ou tratamentos cruéis, desumanos ou degradantes", "penas ou medidas de coação injustas, díspares ou degradantes", "a prisão sem culpa formada e tratamentos cruéis a todos os portugueses, independentemente da idade"], "correct": "a tortura, penas ou tratamentos cruéis, desumanos ou degradantes" },
-  { "id": 8, "topic": "V", "question": "De acordo com a Lei Orgânica, a PSP…", "options": ["é uma força de segurança de natureza militar, constituída por militares organizados num corpo especial de tropas e dotada de autonomia administrativa", "está organizada hierarquicamente em todos os níveis da sua estrutura, estando o pessoal com funções policiais sujeito à hierarquia de comando e o pessoal sem funções policiais sujeito às regras gerais de hierarquia da função pública", "é um corpo superior de polícia criminal, está organizada hierarquicamente na dependência do Ministério da Justiça, é um serviço central da administração direta do Estado e um órgão de polícia criminal de competência genérica", "está organizada hierarquicamente em todos os níveis da sua estrutura, militarizada, sendo um serviço central do Estado sem autonomia administrativa"], "correct": "está organizada hierarquicamente em todos os níveis da sua estrutura, estando o pessoal com funções policiais sujeito à hierarquia de comando e o pessoal sem funções policiais sujeito às regras gerais de hierarquia da função pública" },
-  { "id": 9, "topic": "VI", "question": "Nos termos do artigo 24.º do seu Estatuto, os polícias têm direito à dotação inicial do fardamento no momento do ingresso na PSP. Para efeitos...", "options": ["a PSP participa nas despesas com a aquisição de fardamento efetuadas pelos polícias na efetividade de serviço, através da atribuição de uma comparticipação anual no valor de € 600, com a natureza de prestação social, que é assegurada decorridos dois anos sobre a data de ingresso na PSP", "a PSP não participa nas despesas com a aquisição de fardamento efetuadas pelos polícias na efetividade de serviço", "a PSP participa nas despesas com a aquisição de fardamento efetuadas pelos polícias na efetividade de serviço, através da atribuição de uma comparticipação anual no valor de € 600, com a natureza de prestação social, que é assegurada decorridos quatro anos sobre a data de ingresso na PSP", "a PSP participa nas despesas com a aquisição de fardamento efetuadas pelos polícias na efetividade de serviço, através da atribuição de uma comparticipação anual no valor de € 600, com a natureza de prestação social, que é assegurada decorridos quatro anos sobre a data de ingresso na PSP"], "correct": "a PSP participa nas despesas com a aquisição de fardamento efetuadas pelos polícias na efetividade de serviço, através da atribuição de uma comparticipação anual no valor de € 600, com a natureza de prestação social, que é assegurada decorridos dois anos sobre a data de ingresso na PSP" },
-  { "id": 10, "topic": "VII", "question": "Qual dos seguintes países pertence à União Europeia?", "options": ["Bélgica", "Ucrânia", "Argélia", "Escócia"], "correct": "Bélgica" }
+  { 
+    "id": 1, 
+    "topic": "I", 
+    "question": "“Uma Polícia <b><u>integral</u></b>, <b><u>humana</u></b>, <b><u>forte</u></b>, <b><u>coesa</u></b> e ao serviço do cidadão.” As palavras sublinhadas são…", 
+    "options": ["sinónimas", "antónimas", "adjetivos", "advérbios"], 
+    "correct": "adjetivos" 
+  },
+
+  { 
+    "id": 2, 
+    "topic": "I", 
+    "question": "“A PSP depende do membro do Governo responsável pela Administração Interna.” Qual é o sujeito da frase?", 
+    "options": [
+      "A PSP...",
+      "...pela Administração Interna",
+      "…do membro do Governo…",
+      "…do membro do Governo responsável pela Administração Interna"
+    ], 
+    "correct": "A PSP..."
+  },
+
+  { 
+    "id": 3, 
+    "topic": "I", 
+    "question": "Qual das seguintes frases não tem erros quanto aos acentos gráficos?", 
+    "options": [
+      "O policia pára há porta da esquadra", 
+      "Na esquadra à diversas valências políciaís", 
+      "Há na Polícia oportunidades de carreira", 
+      "Todas as hipóteses acima estão erradas"
+    ], 
+    "correct": "Há na Polícia oportunidades de carreira" 
+  },
+
+  { 
+    "id": 4, 
+    "topic": "II", 
+    "question": "Qual das seguintes instituições não é uma força de segurança ou Polícia?", 
+    "options": [
+      "Polícia de Segurança Pública", 
+      "Guarda Nacional Republicana", 
+      "Polícia Judiciária", 
+      "Serviço de Informações Estratégicas de Defesa"
+    ], 
+    "correct": "Serviço de Informações Estratégicas de Defesa" 
+  },
+
+  { 
+    "id": 5, 
+    "topic": "II", 
+    "question": "Qual dos seguintes crimes é o mais participado em Portugal, segundo o Relatório Anual de Segurança Interna de 2024?", 
+    "options": [
+      "Estacionamento abusivo", 
+      "Violência doméstica", 
+      "Homicídio", 
+      "Condução de veículos automóveis com velocidade excessiva"
+    ], 
+    "correct": "Violência doméstica" 
+  },
+
+  { 
+    "id": 6, 
+    "topic": "III", 
+    "question": "O processo criminal assegura…", 
+    "options": [
+      "algumas garantias de defesa, dependendo da capacidade económica dos interessados", 
+      "todas as garantias de defesa, incluindo o recurso ao Provedor de Justiça", 
+      "todas as garantias de defesa, incluindo o recurso", 
+      "todas as garantias, exceto o recurso"
+    ], 
+    "correct": "todas as garantias de defesa, incluindo o recurso" 
+  },
+
+  { 
+    "id": 7, 
+    "topic": "IV", 
+    "question": "A DUDH, concretamente no seu artigo 5.º, proíbe…", 
+    "options": [
+      "a prisão com culpa formada e tratamentos cruéis, a todos os portugueses de origem ou por adoção", 
+      "a tortura, penas ou tratamentos cruéis, desumanos ou degradantes", 
+      "penas ou medidas de coação injustas, díspares ou degradantes", 
+      "a prisão sem culpa formada e tratamentos cruéis a todos os portugueses, independentemente da idade"
+    ], 
+    "correct": "a tortura, penas ou tratamentos cruéis, desumanos ou degradantes" 
+  },
+
+  { 
+    "id": 8, 
+    "topic": "V", 
+    "question": "De acordo com a Lei Orgânica, a PSP…", 
+    "options": [
+      "é uma força de segurança de natureza militar, constituída por militares organizados num corpo especial de tropas e dotada de autonomia administrativa", 
+      "está organizada hierarquicamente em todos os níveis da sua estrutura, estando o pessoal com funções policiais sujeito à hierarquia de comando e o pessoal sem funções policiais sujeito às regras gerais de hierarquia da função pública", 
+      "é um corpo superior de polícia criminal, está organizada hierarquicamente na dependência do Ministério da Justiça, é um serviço central da administração direta do Estado e um órgão de polícia criminal de competência genérica", 
+      "está organizada hierarquicamente em todos os níveis da sua estrutura, militarizada, sendo um serviço central do Estado sem autonomia administrativa"
+    ], 
+    "correct": "está organizada hierarquicamente em todos os níveis da sua estrutura, estando o pessoal com funções policiais sujeito à hierarquia de comando e o pessoal sem funções policiais sujeito às regras gerais de hierarquia da função pública" 
+  },
+
+  { 
+    "id": 9, 
+    "topic": "VI", 
+    "question": "Nos termos do artigo 24.º do seu Estatuto, os polícias têm direito à dotação inicial do fardamento no momento do ingresso na PSP. Para efeitos...", 
+    "options": [
+      "a PSP participa nas despesas com a aquisição de fardamento efetuadas pelos polícias na efetividade de serviço, através da atribuição de uma comparticipação anual no valor de € 600, com a natureza de prestação social, que é assegurada decorridos dois anos sobre a data de ingresso na PSP", 
+      "a PSP não participa nas despesas com a aquisição de fardamento efetuadas pelos polícias na efetividade de serviço", 
+      "a PSP participa nas despesas com a aquisição de fardamento efetuadas pelos polícias na efetividade de serviço, através da atribuição de uma comparticipação anual no valor de € 600, com a natureza de prestação social, que é assegurada decorridos quatro anos sobre a data de ingresso na PSP", 
+      "a PSP participa nas despesas com a aquisição de fardamento efetuadas pelos polícias na efetividade de serviço, através da atribuição de uma comparticipação anual no valor de € 600, com a natureza de prestação social, que é assegurada decorridos quatro anos sobre a data de ingresso na PSP"
+    ], 
+    "correct": "a PSP participa nas despesas com a aquisição de fardamento efetuadas pelos polícias na efetividade de serviço, através da atribuição de uma comparticipação anual no valor de € 600, com a natureza de prestação social, que é assegurada decorridos dois anos sobre a data de ingresso na PSP" 
+  },
+
+  { 
+    "id": 10, 
+    "topic": "VII", 
+    "question": "Qual dos seguintes países pertence à União Europeia?", 
+    "options": ["Bélgica", "Ucrânia", "Argélia", "Escócia"], 
+    "correct": "Bélgica" 
+  }
   // ... adiciona todas as perguntas que tiveres ...
 ];
 
