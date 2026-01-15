@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Simulador PSP</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  h1 { text-align: center; }
+  .question { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+  .options { margin-top: 10px; }
+  .options label { display: block; margin-bottom: 5px; }
+  #timer { font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 20px; }
+  #submit { display: block; margin: 0 auto; padding: 10px 20px; font-size: 16px; }
+  #result { margin-top: 20px; font-size: 18px; font-weight: bold; text-align: center; }
+</style>
+</head>
+<body>
+
+<h1>Simulador PSP</h1>
+<div id="timer">02:00:00</div>
+<form id="quizForm"></form>
+<button id="submit">Submeter Teste</button>
+<div id="result"></div>
+
+<script>
+// ======== CONFIGURAÇÃO DAS PERGUNTAS ========
+// Cada pergunta tem: texto, 4 opções (A,B,C,D) e a letra da correta
+const questions = [
+  {
+    question: "1. Qual é a capital de Portugal?",
+    options: ["Porto", "Lisboa", "Coimbra", "Todas as anteriores"],
+    answer: "B"
+  },
+  {
+    question: "2. Qual é o maior rio de Portugal?",
+    options: ["Tejo", "Douro", "Guadiana", "Todas as anteriores"],
+    answer: "A"
+  },
+  {
+    question: "3. A Constituição Portuguesa prevê o direito de resistência?",
+    options: ["Sim, mas apenas contra sujeitos privados", "Sim, contra poderes públicos e privados", "Não", "Todas as anteriores"],
+    answer: "B"
+  }
+  // Adiciona mais perguntas aqui...
+];
+
+// ======== FUNÇÃO PARA EMBARALHAR ARRAYS ========
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+// ======== CRIAR FORMULÁRIO ========
+const quizForm = document.getElementById("quizForm");
+
+questions.forEach((q, idx) => {
+  const div = document.createElement("div");
+  div.className = "question";
+
+  const qText = document.createElement("div");
+  qText.textContent = q.question;
+  div.appendChild(qText);
+
+  const opts = [...q.options];
+  const todasIndex = opts.findIndex(opt => opt.startsWith("Todas"));
+  if (todasIndex !== -1) {
+    const todas = opts.splice(todasIndex, 1)[0];
+    shuffleArray(opts);
+    opts.push(todas); // "Todas" sempre na última posição
+  } else {
+    shuffleArray(opts);
+  }
+
+  const optionsDiv = document.createElement("div");
+  optionsDiv.className = "options";
+
+  opts.forEach((opt, i) => {
+    const label = document.createElement("label");
+    const radio = document.createElement("input");
+    radio.type = "radio";
+    radio.name = "q" + idx;
+    radio.value = String.fromCharCode(65 + i); // A, B, C, D
+    label.appendChild(radio);
+    label.appendChild(document.createTextNode(" " + opt));
+    optionsDiv.appendChild(label);
+  });
+
+  div.appendChild(optionsDiv);
+  quizForm.appendChild(div);
+});
+
+// ======== TIMER ========
+let time = 2 * 60 * 60; // 2 horas em segundos
+const timerDiv = document.getElementById("timer");
+
+function updateTimer() {
+  const h = String(Math.floor(time / 3600)).padStart(2, '0');
+  const m = String(Math.floor((time % 3600) / 60)).padStart(2, '0');
+  const s = String(time % 60).padStart(2, '0');
+  timerDiv.textContent = `${h}:${m}:${s}`;
+  if (time <= 0) {
+    clearInterval(timerInterval);
+    submitTest();
+  }
+  time--;
+}
+
+const timerInterval = setInterval(updateTimer, 1000);
+
+// ======== CALCULAR NOTA ========
+function submitTest() {
+  let score = 0;
+  questions.forEach((q, idx) => {
+    const selected = document.querySelector(`input[name="q${idx}"].checked`);
+    if (selected && selected.value === q.answer) {
+      score++;
+    }
+  });
+  const finalScore = (score / questions.length) * 20;
+  document.getElementById("result").textContent = 
+    `Acertaste ${score}/${questions.length} perguntas. Nota final: ${finalScore.toFixed(2)}/20`;
+}
+
+document.getElementById("submit").addEventListener("click", function(e) {
+  e.preventDefault();
+  clearInterval(timerInterval);
+  submitTest();
+});
+</script>
+
+</body>
+</html>
