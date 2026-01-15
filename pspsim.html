@@ -1,25 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
 <title>Simulador PSP</title>
 <style>
-  body { font-family: Arial, sans-serif; margin: 20px; }
-  h1 { text-align: center; }
-  .question { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
-  .options { margin-top: 10px; }
-  .options label { display: block; margin-bottom: 5px; }
-  #timer { font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 20px; }
-  #submit { display: block; margin: 0 auto; padding: 10px 20px; font-size: 16px; }
-  #result { margin-top: 20px; font-size: 18px; font-weight: bold; text-align: center; }
-</style>
-</head>
-<body>
-<header style="
+body { font-family: Arial, sans-serif; margin: 20px; background: #f1f1f1; }
+header {
     background-color: #003366;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
     position: relative;
     height: 140px;
     display: flex;
@@ -28,25 +16,13 @@
     align-items: center;
     font-weight: bold;
     overflow: hidden;
-">
+}
+header div.main { font-size: 2.8rem; letter-spacing: 1px; text-transform: uppercase; z-index: 2; }
+header div.sub { font-size: 1.05rem; font-style: italic; margin-top: 8px; text-align: center; max-width: 90%; z-index: 2; }
 
-    <div style="font-size: 2.8rem; letter-spacing: 1px; text-transform: uppercase; z-index: 2;">
-        SIMULADOR PSP
-    </div>
-
-    <div style="
-        font-size: 1.05rem;
-        font-style: italic;
-        margin-top: 8px;
-        text-align: center;
-        max-width: 90%;
-        z-index: 2;
-    ">
-        Simulação da Prova de Conhecimentos da Polícia de Segurança Pública
-    </div>
-
-    <!-- BLOCO DE FAIXAS (AGORA COM 3 LINHAS BRANCAS VISÍVEIS) -->
-<div style="
+/* riscas brancas diagonais */
+header::after {
+    content: "";
     position: absolute;
     bottom: -60px;
     right: -20px;
@@ -54,145 +30,127 @@
     height: 300px;
     transform-origin: bottom right;
     transform: rotate(17deg);
-    pointer-events: none;
-    background: linear-gradient(
-        to right,
-        #003366 0%,
-        #003366 30%,
-
-        white 30%,
-        white 38%,
-
-        #003366 38%,
-        #003366 48%,
-
-        white 48%,
-        white 55%,
-
-        #003366 55%,
-        #003366 65%,
-
-        white 65%,
-        white 72%,
-
-        #003366 72%,
-        #003366 100%
+    background: repeating-linear-gradient(
+        45deg,
+        white, white 12px,
+        #003366 12px, #003366 22px
     );
-"></div>
+    opacity: 0.4;
+    pointer-events: none;
+}
 
+.question { background: white; margin-bottom: 20px; padding: 15px; border-radius: 8px; max-width: 800px; }
+.options label { display: block; margin-bottom: 5px; cursor: pointer; }
+#timer { font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 20px; }
+#submit { display: block; margin: 0 auto; padding: 12px 25px; font-size: 16px; font-weight: bold; background: #003366; color: white; border: none; border-radius: 8px; cursor: pointer; }
+#result { margin-top: 20px; font-size: 18px; font-weight: bold; text-align: center; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="main">SIMULADOR PSP</div>
+  <div class="sub">Simulação da Prova de Conhecimentos da Polícia de Segurança Pública</div>
 </header>
+
 <div id="timer">02:00:00</div>
 <form id="quizForm"></form>
 <button id="submit">Submeter Teste</button>
 <div id="result"></div>
 
 <script>
-// ======== CONFIGURAÇÃO DAS PERGUNTAS ========
-// Cada pergunta tem: texto, 4 opções (A,B,C,D) e a letra da correta
+// ====== CONFIGURAÇÃO DAS PERGUNTAS ======
 const questions = [
-  {
-    question: "1. Qual é a capital de Portugal?",
-    options: ["Porto", "Lisboa", "Coimbra", "Todas as anteriores"],
-    answer: "B"
-  },
-  {
-    question: "2. Qual é o maior rio de Portugal?",
-    options: ["Tejo", "Douro", "Guadiana", "Todas as anteriores"],
-    answer: "A"
-  },
-  {
-    question: "3. A Constituição Portuguesa prevê o direito de resistência?",
-    options: ["Sim, mas apenas contra sujeitos privados", "Sim, contra poderes públicos e privados", "Não", "Todas as anteriores"],
-    answer: "B"
-  }
-  // Adiciona mais perguntas aqui...
+  {topic:1, q:"Qual é a capital de Portugal?", options:["Porto","Lisboa","Coimbra","Todas as anteriores"], answer:"B"},
+  {topic:1, q:"Qual é o maior rio de Portugal?", options:["Tejo","Douro","Guadiana","Todas as anteriores"], answer:"A"},
+  {topic:1, q:"A Constituição Portuguesa prevê o direito de resistência?", options:["Sim, mas apenas contra sujeitos privados","Sim, contra poderes públicos e privados","Não","Todas as anteriores"], answer:"B"},
+  
+  {topic:2, q:"Quem é o presidente da Comissão Europeia?", options:["Ursula von der Leyen","Jean-Claude Juncker","Angela Merkel","Todas as anteriores"], answer:"A"},
+  {topic:2, q:"Qual é a moeda da UE?", options:["Euro","Libra","Dólar","Todas as anteriores"], answer:"A"},
+  {topic:2, q:"O Parlamento Europeu é eleito por?", options:["Sufrágio universal","Sorteio","Indicação do governo","Todas as anteriores"], answer:"A"},
+  
+  {topic:3, q:"A PSP é uma força de segurança de que país?", options:["Portugal","Espanha","França","Todas as anteriores"], answer:"A"},
+  {topic:3, q:"O estatuto da PSP foi publicado em que ano?", options:["2015","2010","2000","Todas as anteriores"], answer:"A"},
+  {topic:3, q:"As funções da PSP incluem?", options:["Segurança interna","Defender a legalidade democrática","Ambas anteriores","Todas as anteriores"], answer:"D"}
 ];
 
-// ======== FUNÇÃO PARA EMBARALHAR ARRAYS ========
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+// ====== EMBARALHAR ARRAY ======
+function shuffleArray(arr) {
+  for (let i = arr.length -1; i>0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
   }
+  return arr;
 }
 
-// ======== CRIAR FORMULÁRIO ========
+// ====== CRIAR FORMULÁRIO COM PERGUNTAS ALEATÓRIAS ======
 const quizForm = document.getElementById("quizForm");
+const topics = [1,2,3]; // 3 tópicos
+let testQuestions = [];
 
-questions.forEach((q, idx) => {
+topics.forEach(t => {
+  const filtered = questions.filter(q => q.topic===t);
+  testQuestions = testQuestions.concat(shuffleArray(filtered).slice(0,2)); // 2 perguntas de cada tópico
+});
+testQuestions = shuffleArray(testQuestions); // embaralhar todas
+
+testQuestions.forEach((q, idx)=>{
   const div = document.createElement("div");
   div.className = "question";
-
-  const qText = document.createElement("div");
-  qText.textContent = q.question;
-  div.appendChild(qText);
-
-  const opts = [...q.options];
-  const todasIndex = opts.findIndex(opt => opt.startsWith("Todas"));
-  if (todasIndex !== -1) {
-    const todas = opts.splice(todasIndex, 1)[0];
-    shuffleArray(opts);
-    opts.push(todas); // "Todas" sempre na última posição
+  div.innerHTML = `<p>${q.q}</p>`;
+  
+  let opts = [...q.options];
+  const todasIndex = opts.findIndex(o=>o.startsWith("Todas"));
+  let todasOption;
+  if(todasIndex!==-1){
+    todasOption = opts.splice(todasIndex,1)[0];
+    opts = shuffleArray(opts);
+    opts.push(todasOption);
   } else {
-    shuffleArray(opts);
+    opts = shuffleArray(opts);
   }
-
-  const optionsDiv = document.createElement("div");
-  optionsDiv.className = "options";
-
-  opts.forEach((opt, i) => {
+  
+  opts.forEach((opt,i)=>{
     const label = document.createElement("label");
-    const radio = document.createElement("input");
-    radio.type = "radio";
-    radio.name = "q" + idx;
-    radio.value = String.fromCharCode(65 + i); // A, B, C, D
-    label.appendChild(radio);
-    label.appendChild(document.createTextNode(" " + opt));
-    optionsDiv.appendChild(label);
+    label.innerHTML = `<input type="radio" name="q${idx}" value="${String.fromCharCode(65+i)}"> ${opt}`;
+    div.appendChild(label);
   });
-
-  div.appendChild(optionsDiv);
+  
   quizForm.appendChild(div);
 });
 
-// ======== TIMER ========
-let time = 2 * 60 * 60; // 2 horas em segundos
+// ====== TIMER ======
+let time = 2*60*60;
 const timerDiv = document.getElementById("timer");
-
-function updateTimer() {
-  const h = String(Math.floor(time / 3600)).padStart(2, '0');
-  const m = String(Math.floor((time % 3600) / 60)).padStart(2, '0');
-  const s = String(time % 60).padStart(2, '0');
+function updateTimer(){
+  const h = String(Math.floor(time/3600)).padStart(2,'0');
+  const m = String(Math.floor((time%3600)/60)).padStart(2,'0');
+  const s = String(time%60).padStart(2,'0');
   timerDiv.textContent = `${h}:${m}:${s}`;
-  if (time <= 0) {
+  if(time<=0){
     clearInterval(timerInterval);
     submitTest();
   }
   time--;
 }
+const timerInterval = setInterval(updateTimer,1000);
 
-const timerInterval = setInterval(updateTimer, 1000);
-
-// ======== CALCULAR NOTA ========
-function submitTest() {
-  let score = 0;
-  questions.forEach((q, idx) => {
-    const selected = document.querySelector(`input[name="q${idx}"].checked`);
-    if (selected && selected.value === q.answer) {
-      score++;
-    }
+// ====== SUBMETER E CALCULAR NOTA ======
+function submitTest(){
+  let scoreCount = 0;
+  testQuestions.forEach((q,idx)=>{
+    const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+    if(selected && selected.value===q.answer) scoreCount++;
   });
-  const finalScore = (score / questions.length) * 20;
-  document.getElementById("result").textContent = 
-    `Acertaste ${score}/${questions.length} perguntas. Nota final: ${finalScore.toFixed(2)}/20`;
+  const finalScore = (scoreCount / testQuestions.length) * 20;
+  document.getElementById("result").textContent = `Acertaste ${scoreCount}/${testQuestions.length} perguntas. Nota final: ${finalScore.toFixed(2)}/20`;
 }
 
-document.getElementById("submit").addEventListener("click", function(e) {
+document.getElementById("submit").addEventListener("click", e=>{
   e.preventDefault();
   clearInterval(timerInterval);
   submitTest();
 });
 </script>
-
 </body>
 </html>
