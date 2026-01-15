@@ -52,12 +52,13 @@ async function loadQuestions() {
   try {
     const res = await fetch("https://raw.githubusercontent.com/pspsim/SimuladorProvaConhecimentos/main/questions.json");
 
-    // Agrupar por tópico
-    const topics = {};
-    data.forEach((q, i) => {
-      if (!topics[q.topic]) topics[q.topic] = [];
-      topics[q.topic].push({ ...q, idx: i });
-    });
+    // agrupar por tópico (usando string, ex: "I", "II")
+  const topics = {};
+  data.questions.forEach(q=>{
+    if(!topics[q.topic]) topics[q.topic]=[];
+    topics[q.topic].push(q);
+  });
+
 
     // Criar formulário
     Object.keys(topics).forEach(topicKey => {
