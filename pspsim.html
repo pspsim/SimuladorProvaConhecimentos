@@ -16,7 +16,7 @@
 </head>
 <body>
 <header style="
-    background-color: #003366;          /* PSP dark blue */
+    background-color: #003366;          /* dark PSP blue base */
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
@@ -27,61 +27,50 @@
     align-items: center;
     font-weight: bold;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 ">
-    <div style="font-size: 2.8rem; letter-spacing: 1px; text-transform: uppercase;">SIMULADOR PSP</div>
+    <div style="font-size: 2.9rem; letter-spacing: 1.2px; text-transform: uppercase; z-index: 2;">SIMULADOR PSP</div>
     <div style="
-        font-size: 1.05rem;
+        font-size: 1.1rem;
         font-style: italic;
-        margin-top: 8px;
+        margin-top: 6px;
         text-align: center;
-        max-width: 90%;
+        max-width: 85%;
         opacity: 0.95;
+        z-index: 2;
     ">
         Simulação da Prova de Conhecimentos da Polícia de Segurança Pública
     </div>
 
-    <!-- Three diagonal blue stripes – matching PSP patrol car style (blue on darker blue) -->
+    <!-- Three thin white diagonal stripes – inverse PSP vehicle style (white on dark blue) -->
     <div style="
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 160px;
-        height: 100%;
+        inset: 0;
         overflow: hidden;
+        pointer-events: none;
     ">
         <div style="
             position: absolute;
-            width: 18px;               /* medium thickness like many PSP side stripes */
-            height: 200%;
-            background-color: #0055aa; /* brighter PSP blue for contrast */
-            transform: rotate(45deg);
-            transform-origin: top right;
-            right: -20px;
-            top: -50%;
-            opacity: 0.9;
-        "></div>
-        <div style="
-            position: absolute;
-            width: 18px;
-            height: 200%;
-            background-color: #0055aa;
-            transform: rotate(45deg);
-            transform-origin: top right;
-            right: 0;
-            top: -50%;
-            opacity: 0.9;
-        "></div>
-        <div style="
-            position: absolute;
-            width: 18px;
-            height: 200%;
-            background-color: #0055aa;
-            transform: rotate(45deg);
-            transform-origin: top right;
-            right: 38px;               /* even spacing ~20-22px apart */
-            top: -50%;
-            opacity: 0.9;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                135deg,              /* 135° for bottom-left to top-right diagonal flow */
+                transparent 0%,
+                transparent 20px,
+                rgba(255,255,255,0.9) 20px,
+                rgba(255,255,255,0.9) 26px,   /* thin white stripe ~6px */
+                transparent 26px,
+                transparent 46px,
+                rgba(255,255,255,0.9) 46px,
+                rgba(255,255,255,0.9) 52px,
+                transparent 52px,
+                transparent 72px,
+                rgba(255,255,255,0.9) 72px,
+                rgba(255,255,255,0.9) 78px,
+                transparent 78px
+            );
+            opacity: 0.75;           /* semi-transparent for that reflective/stylized look */
+            transform: skewX(-10deg); /* slight skew to match angled vehicle perspective if needed – remove if too much */
         "></div>
     </div>
 </header>
