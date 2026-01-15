@@ -28,7 +28,11 @@
     font-weight: bold;
     overflow: hidden;
 ">
-    <div style="font-size: 2.8rem; letter-spacing: 1px; text-transform: uppercase; z-index: 2;">SIMULADOR PSP</div>
+
+    <div style="font-size: 2.8rem; letter-spacing: 1px; text-transform: uppercase; z-index: 2;">
+        SIMULADOR PSP
+    </div>
+
     <div style="
         font-size: 1.05rem;
         font-style: italic;
@@ -40,78 +44,48 @@
         Simulação da Prova de Conhecimentos da Polícia de Segurança Pública
     </div>
 
-    <!-- 5 alternating stripes, anchored bottom-right, wider container for full visibility -->
+    <!-- Container das riscas -->
     <div style="
         position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 500px;  /* much wider to prevent left clipping – try 500px if still only 2 whites */
-        height: 100%;
+        bottom: -40px;
+        right: -80px;
+        width: 450px;
+        height: 250px;
+        transform: rotate(-12deg);
         pointer-events: none;
     ">
-        <!-- Stripe 1: blue, closest to corner -->
-        <div style="
-            position: absolute;
-            width: 10px;
-            height: 250%;  /* taller to cross more of the header */
-            background: #003366;
-            transform: rotate(45deg);
-            transform-origin: bottom right;
-            right: 20px;   /* slight shift inward from edge to avoid corner abyss */
-            bottom: 0;
-            opacity: 1;
-        "></div>
 
-        <!-- Stripe 2: white -->
+        <!-- Faixa branca 1 -->
         <div style="
             position: absolute;
-            width: 10px;
-            height: 250%;
+            right: 0;
+            width: 80px;
+            height: 100%;
             background: white;
-            transform: rotate(45deg);
-            transform-origin: bottom right;
-            right: 40px;
-            bottom: 0;
             opacity: 0.9;
+            transform: skew(-20deg);
         "></div>
 
-        <!-- Stripe 3: blue -->
+        <!-- Faixa branca 2 -->
         <div style="
             position: absolute;
-            width: 10px;
-            height: 250%;
-            background: #003366;
-            transform: rotate(45deg);
-            transform-origin: bottom right;
-            right: 60px;
-            bottom: 0;
-            opacity: 1;
-        "></div>
-
-        <!-- Stripe 4: white -->
-        <div style="
-            position: absolute;
-            width: 10px;
-            height: 250%;
+            right: 110px;
+            width: 50px;
+            height: 100%;
             background: white;
-            transform: rotate(45deg);
-            transform-origin: bottom right;
-            right: 80px;
-            bottom: 0;
             opacity: 0.9;
+            transform: skew(-20deg);
         "></div>
 
-        <!-- Stripe 5: blue (frames the third white) -->
+        <!-- Faixa branca 3 -->
         <div style="
             position: absolute;
-            width: 10px;
-            height: 250%;
-            background: #003366;
-            transform: rotate(45deg);
-            transform-origin: bottom right;
-            right: 100px;
-            bottom: 0;
-            opacity: 1;
+            right: 180px;
+            width: 30px;
+            height: 100%;
+            background: white;
+            opacity: 0.85;
+            transform: skew(-20deg);
         "></div>
     </div>
 </header>
