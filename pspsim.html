@@ -16,7 +16,7 @@
 </head>
 <body>
 <header style="
-    background-color: #003366;
+    background-color: #003366;          /* dark PSP blue */
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
@@ -40,7 +40,7 @@
         Simulação da Prova de Conhecimentos da Polícia de Segurança Pública
     </div>
 
-    <!-- THREE white diagonal stripes – tight to top-right corner, equal spacing = line thickness -->
+    <!-- Exactly THREE thin white diagonal stripes – PSP patrol car inspired -->
     <div style="
         position: absolute;
         top: 0;
@@ -48,10 +48,10 @@
         width: 140px;
         height: 100%;
     ">
-        <!-- Stripe 1 (closest to right edge) -->
+        <!-- Stripe 1 (rightmost) -->
         <div style="
             position: absolute;
-            width: 10px;
+            width: 10px;                /* thin like car markings */
             height: 180%;
             background: white;
             transform: rotate(45deg);
@@ -60,7 +60,7 @@
             top: -40%;
             opacity: 0.8;
         "></div>
-        <!-- Stripe 2 -->
+        <!-- Stripe 2 (middle) -->
         <div style="
             position: absolute;
             width: 10px;
@@ -68,11 +68,11 @@
             background: white;
             transform: rotate(45deg);
             transform-origin: top right;
-            right: 30px;          /* 10px (width) + 10px (gap) = 20px from previous right, but adjusted for visual center-to-center -->
+            right: 35px;                /* ~25px spacing */
             top: -40%;
             opacity: 0.8;
         "></div>
-        <!-- Stripe 3 -->
+        <!-- Stripe 3 (leftmost in group) -->
         <div style="
             position: absolute;
             width: 10px;
@@ -80,7 +80,7 @@
             background: white;
             transform: rotate(45deg);
             transform-origin: top right;
-            right: 50px;          /* another 20px step -->
+            right: 60px;
             top: -40%;
             opacity: 0.8;
         "></div>
