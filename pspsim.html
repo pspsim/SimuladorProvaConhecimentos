@@ -169,27 +169,29 @@ function submitTest() {
     feedback.style.fontWeight = "bold";
 
     const selected = document.querySelector(`input[name="${q.inputName}"]:checked`);
-    if (selected) {
-      const userIndex = parseInt(selected.value);
-      if (userIndex === q.correct) {
-        scoreCount++;
-        q.questionDiv.style.border = "2px solid green";
-        feedback.style.color = "green";
-        feedback.textContent = "✔ Resposta correta";
-      } else {
-        q.questionDiv.style.border = "2px solid red";
-        feedback.style.color = "red";
-        feedback.innerHTML = `
-          ✘ Resposta errada<br>
-          A tua resposta: O ${String.fromCharCode(65 + userIndex)}) ${q.optionsRendered[userIndex]}<br>
-          Resposta correta: O ${String.fromCharCode(65 + q.correct)}) ${q.optionsRendered[q.correct]}
-        `;
-      }
-    } else {
-      q.questionDiv.style.border = "2px solid orange";
-      feedback.style.color = "orange";
-      feedback.textContent = "⚠ Pergunta não respondida";
-    }
+if (selected) {
+  const userIndex = parseInt(selected.value);
+  const userAnswerText = q.optionsRendered[userIndex]; // pega o texto da opção selecionada
+
+  if (userAnswerText === q.correct) { // compara com o texto certo
+    scoreCount++;
+    q.questionDiv.style.border = "2px solid green";
+    feedback.style.color = "green";
+    feedback.textContent = "✔ Resposta correta";
+  } else {
+    q.questionDiv.style.border = "2px solid red";
+    feedback.style.color = "red";
+    feedback.innerHTML = `
+      ✘ Resposta errada<br>
+      A tua resposta: O ${String.fromCharCode(65 + userIndex)}) ${userAnswerText}<br>
+      Resposta correta: ${q.correct}
+    `;
+  }
+} else {
+  q.questionDiv.style.border = "2px solid orange";
+  feedback.style.color = "orange";
+  feedback.textContent = "⚠ Pergunta não respondida";
+}
 
     q.questionDiv.appendChild(feedback);
   });
