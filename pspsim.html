@@ -40,24 +40,24 @@
         Simulação da Prova de Conhecimentos da Polícia de Segurança Pública
     </div>
 
-    <!-- 5 alternating stripes (blue-white-blue-white-blue), all 10px thick, 10px gaps, anchored bottom-right -->
+    <!-- 5 alternating stripes, anchored bottom-right, wider container for full visibility -->
     <div style="
         position: absolute;
         bottom: 0;
         right: 0;
-        width: 300px;  /* wider to let left stripes show fully */
+        width: 400px;  /* much wider to prevent left clipping – try 500px if still only 2 whites */
         height: 100%;
         pointer-events: none;
     ">
-        <!-- Stripe 1: blue (#003366), closest to right corner -->
+        <!-- Stripe 1: blue, closest to corner -->
         <div style="
             position: absolute;
             width: 10px;
-            height: 220%;
+            height: 250%;  /* taller to cross more of the header */
             background: #003366;
             transform: rotate(45deg);
             transform-origin: bottom right;
-            right: 10px;
+            right: 20px;   /* slight shift inward from edge to avoid corner abyss */
             bottom: 0;
             opacity: 1;
         "></div>
@@ -66,11 +66,11 @@
         <div style="
             position: absolute;
             width: 10px;
-            height: 220%;
+            height: 250%;
             background: white;
             transform: rotate(45deg);
             transform-origin: bottom right;
-            right: 30px;   /* 20px step: 10px width + 10px gap */
+            right: 40px;
             bottom: 0;
             opacity: 0.9;
         "></div>
@@ -79,11 +79,11 @@
         <div style="
             position: absolute;
             width: 10px;
-            height: 220%;
+            height: 250%;
             background: #003366;
             transform: rotate(45deg);
             transform-origin: bottom right;
-            right: 50px;
+            right: 60px;
             bottom: 0;
             opacity: 1;
         "></div>
@@ -92,24 +92,24 @@
         <div style="
             position: absolute;
             width: 10px;
-            height: 220%;
+            height: 250%;
             background: white;
             transform: rotate(45deg);
             transform-origin: bottom right;
-            right: 70px;
+            right: 80px;
             bottom: 0;
             opacity: 0.9;
         "></div>
 
-        <!-- Stripe 5: blue (leftmost, should now be visible as it frames the last white) -->
+        <!-- Stripe 5: blue (frames the third white) -->
         <div style="
             position: absolute;
             width: 10px;
-            height: 220%;
+            height: 250%;
             background: #003366;
             transform: rotate(45deg);
             transform-origin: bottom right;
-            right: 90px;
+            right: 100px;
             bottom: 0;
             opacity: 1;
         "></div>
