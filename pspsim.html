@@ -75,40 +75,40 @@
 <script>
 // ====== CONFIGURAÇÃO DAS PERGUNTAS POR TÓPICO ======
 const topics = [
-  {id:1, name:"Português", questions:[
+  {name:"Português", questions:[
     {q:"Qual é a capital de Portugal?", options:["Porto","Lisboa","Coimbra","Todas as anteriores"], answer:"B"},
     {q:"Qual é o maior rio de Portugal?", options:["Tejo","Douro","Guadiana","Todas as anteriores"], answer:"A"},
     {q:"A Constituição Portuguesa prevê o direito de resistência?", options:["Sim, mas apenas contra sujeitos privados","Sim, contra poderes públicos e privados","Não","Todas as anteriores"], answer:"B"}
   ]},
-  {id:2, name:"União Europeia", questions:[
+  {name:"União Europeia", questions:[
     {q:"Quem é o presidente da Comissão Europeia?", options:["Ursula von der Leyen","Jean-Claude Juncker","Angela Merkel","Todas as anteriores"], answer:"A"},
     {q:"Qual é a moeda da UE?", options:["Euro","Libra","Dólar","Todas as anteriores"], answer:"A"},
     {q:"O Parlamento Europeu é eleito por?", options:["Sufrágio universal","Sorteio","Indicação do governo","Todas as anteriores"], answer:"A"}
   ]},
-  {id:3, name:"PSP", questions:[
+  {name:"PSP", questions:[
     {q:"A PSP é uma força de segurança de que país?", options:["Portugal","Espanha","França","Todas as anteriores"], answer:"A"},
     {q:"O estatuto da PSP foi publicado em que ano?", options:["2015","2010","2000","Todas as anteriores"], answer:"A"},
     {q:"As funções da PSP incluem?", options:["Segurança interna","Defender a legalidade democrática","Ambas anteriores","Todas as anteriores"], answer:"D"}
   ]},
-  {id:4, name:"Direitos Humanos", questions:[
+  {name:"Direitos Humanos", questions:[
     {q:"A Declaração Universal dos Direitos Humanos foi adotada em que ano?", options:["1945","1948","1950","Todas as anteriores"], answer:"B"},
     {q:"Todos têm direito à liberdade de expressão?", options:["Sim","Não","Só cidadãos","Todas as anteriores"], answer:"A"},
   ]},
-  {id:5, name:"Cultura Geral", questions:[
+  {name:"Cultura Geral", questions:[
     {q:"Qual é a capital de França?", options:["Paris","Lyon","Marseille","Todas as anteriores"], answer:"A"},
     {q:"Qual é o maior oceano do mundo?", options:["Atlântico","Pacífico","Índico","Todas as anteriores"], answer:"B"},
   ]},
-  {id:6, name:"Geografia", questions:[
+  {name:"Geografia", questions:[
     {q:"A cidade de Lisboa fica à beira de qual rio?", options:["Douro","Tejo","Guadiana","Todas as anteriores"], answer:"B"},
     {q:"O ponto mais alto de Portugal é?", options:["Serra da Estrela","Monte Pico","Serra do Gerês","Todas as anteriores"], answer:"B"},
   ]},
-  {id:7, name:"História", questions:[
+  {name:"História", questions:[
     {q:"Quem descobriu o Brasil?", options:["Pedro Álvares Cabral","Cristóvão Colombo","Vasco da Gama","Todas as anteriores"], answer:"A"},
     {q:"Em que ano ocorreu a Revolução dos Cravos?", options:["1974","1975","1976","Todas as anteriores"], answer:"A"},
   ]}
 ];
 
-// ====== EMBARALHAR ARRAY ======
+// ====== FUNÇÃO PARA EMBARALHAR ======
 function shuffleArray(arr){
   for(let i=arr.length-1;i>0;i--){
     const j = Math.floor(Math.random()*(i+1));
@@ -128,7 +128,7 @@ topics.forEach(topic=>{
 
   const shuffled = shuffleArray([...topic.questions]);
   const selected = shuffled.slice(0,2); // 2 perguntas de cada tópico
-  testQuestions = testQuestions.concat(selected.map(q=>({...q, topic:topic.name})));
+  testQuestions = testQuestions.concat(selected);
 
   selected.forEach((q, idx)=>{
     const div = document.createElement("div");
@@ -153,7 +153,7 @@ topics.forEach(topic=>{
       const label = document.createElement("label");
       const radio = document.createElement("input");
       radio.type = "radio";
-      radio.name = "q" + testQuestions.length + "-" + idx;
+      radio.name = "q"+testQuestions.indexOf(q); // CORRIGIDO: nome = índice no array
       radio.value = String.fromCharCode(65+i);
       label.appendChild(radio);
       label.appendChild(document.createTextNode(" " + opt));
@@ -183,9 +183,8 @@ const timerInterval = setInterval(updateTimer,1000);
 // ====== SUBMETER E CALCULAR NOTA ======
 function submitTest(){
   let scoreCount = 0;
-  const inputs = document.querySelectorAll("input[type='radio']");
   testQuestions.forEach((q, idx)=>{
-    const selected = Array.from(inputs).find(i=>i.name.startsWith("q" + idx) && i.checked);
+    const selected = document.querySelector(`input[name="q${idx}"]:checked`);
     if(selected && selected.value === q.answer) scoreCount++;
   });
   const finalScore = (scoreCount / testQuestions.length) * 20;
