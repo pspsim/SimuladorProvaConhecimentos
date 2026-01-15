@@ -100,20 +100,28 @@ Object.keys(topics).forEach(topicKey => {
     }
 
     opts.forEach((opt, i) => {
-  const divOpt = document.createElement("div");
-  divOpt.innerHTML = ` ${String.fromCharCode(65 + i)}) `;
-  
+  const label = document.createElement("label"); // etiqueta clicável
+  label.style.display = "block";
+  label.style.marginBottom = "4px";
+
+  const letra = document.createElement("span");
+  letra.textContent = `O ${String.fromCharCode(65 + i)}) `;
+
   const input = document.createElement("input");
   input.type = "radio";
   input.name = `q${q.idx}`;
   input.value = i;
-  
-  const span = document.createElement("span");
-  span.textContent = opt;
-  
-  divOpt.appendChild(input);
-  divOpt.appendChild(span);
-  div.appendChild(divOpt);
+  input.style.marginLeft = "5px";
+  input.style.marginRight = "5px";
+
+  label.appendChild(letra);
+  label.appendChild(input);
+
+  const texto = document.createElement("span");
+  texto.textContent = opt;
+  label.appendChild(texto);
+
+  div.appendChild(label);
 });
     quizForm.appendChild(div);
 
