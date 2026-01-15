@@ -16,7 +16,7 @@
 </head>
 <body>
 <header style="
-    background-color: #003366;          /* dark PSP blue */
+    background-color: #003366;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
@@ -40,48 +40,48 @@
         Simulação da Prova de Conhecimentos da Polícia de Segurança Pública
     </div>
 
-    <!-- Exactly THREE thin white diagonal stripes – PSP patrol car inspired -->
+    <!-- THREE white diagonal stripes – tight to bottom-right corner, equal spacing = line thickness -->
     <div style="
         position: absolute;
-        top: 0;
+        bottom: 0;
         right: 0;
         width: 140px;
         height: 100%;
     ">
-        <!-- Stripe 1 (rightmost) -->
+        <!-- Stripe 1 (closest to right edge) -->
         <div style="
             position: absolute;
-            width: 10px;                /* thin like car markings */
+            width: 10px;
             height: 180%;
             background: white;
             transform: rotate(45deg);
-            transform-origin: top right;
+            transform-origin: bottom right;
             right: 10px;
-            top: -40%;
+            bottom: -40%;
             opacity: 0.8;
         "></div>
-        <!-- Stripe 2 (middle) -->
+        <!-- Stripe 2 -->
         <div style="
             position: absolute;
             width: 10px;
             height: 180%;
             background: white;
             transform: rotate(45deg);
-            transform-origin: top right;
-            right: 35px;                /* ~25px spacing */
-            top: -40%;
+            transform-origin: bottom right;
+            right: 30px;
+            bottom: -40%;
             opacity: 0.8;
         "></div>
-        <!-- Stripe 3 (leftmost in group) -->
+        <!-- Stripe 3 -->
         <div style="
             position: absolute;
             width: 10px;
             height: 180%;
             background: white;
             transform: rotate(45deg);
-            transform-origin: top right;
-            right: 60px;
-            top: -40%;
+            transform-origin: bottom right;
+            right: 50px;
+            bottom: -40%;
             opacity: 0.8;
         "></div>
     </div>
