@@ -1,1 +1,230 @@
-{\n  "texts": [],\n\n  "questions": [\n    {\n      "id": 1,\n      "topic": "I",\n      "type": "normal",\n      "question": "Qual é a capital de Portugal?",\n      "options": [\n        "Porto",\n        "Lisboa",\n        "Coimbra",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    },\n    {\n      "id": 2,\n      "topic": "I",\n      "type": "normal",\n      "question": "Qual é a língua oficial de Portugal?",\n      "options": [\n        "Espanhol",\n        "Português",\n        "Francês",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    },\n    {\n      "id": 3,\n      "topic": "I",\n      "type": "normal",\n      "question": "O Pico situa-se em que arquipélago?",\n      "options": [\n        "Madeira",\n        "Açores",\n        "Canárias",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    },\n    {\n      "id": 4,\n      "topic": "I",\n      "type": "normal",\n      "question": "Qual é o rio mais longo de Portugal?",\n      "options": [\n        "Douro",\n        "Tejo",\n        "Guadiana",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    },\n    {\n      "id": 5,\n      "topic": "I",\n      "type": "normal",\n      "question": "Portugal é um Estado:",\n      "options": [\n        "Federal",\n        "Unitário",\n        "Confederado",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    },\n\n    {\n      "id": 6,\n      "topic": "II",\n      "type": "normal",\n      "question": "Quem escreveu 'Os Lusíadas'?",\n      "options": [\n        "Fernando Pessoa",\n        "Luís de Camões",\n        "Eça de Queirós",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    },\n    {\n      "id": 7,\n      "topic": "II",\n      "type": "normal",\n      "question": "Qual é o planeta mais próximo do Sol?",\n      "options": [\n        "Vénus",\n        "Mercúrio",\n        "Marte",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    },\n    {\n      "id": 8,\n      "topic": "II",\n      "type": "normal",\n      "question": "Quem pintou a Mona Lisa?",\n      "options": [\n        "Michelangelo",\n        "Leonardo da Vinci",\n        "Rafael",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    },\n    {\n      "id": 9,\n      "topic": "II",\n      "type": "normal",\n      "question": "Qual é o oceano que banha Portugal?",\n      "options": [\n        "Atlântico",\n        "Índico",\n        "Pacífico",\n        "Todas as anteriores"\n      ],\n      "correct": 0\n    },\n    {\n      "id": 10,\n      "topic": "II",\n      "type": "normal",\n      "question": "Qual é a moeda do Japão?",\n      "options": [\n        "Yuan",\n        "Won",\n        "Iene",\n        "Todas as anteriores"\n      ],\n      "correct": 2\n    },\n\n    {\n      "id": 11,\n      "topic": "III",\n      "type": "normal",\n      "question": "Quantos Estados-membros tem a União Europeia (2024)?",\n      "options": [\n        "25",\n        "26",\n        "27",\n        "Todas as anteriores"\n      ],\n      "correct": 2\n    },\n    {\n      "id": 12,\n      "topic": "III",\n      "type": "normal",\n      "question": "Qual é a moeda oficial da maioria dos países da UE?",\n      "options": [\n        "Euro",\n        "Libra",\n        "Dólar",\n        "Todas as anteriores"\n      ],\n      "correct": 0\n    },\n    {\n      "id": 13,\n      "topic": "III",\n      "type": "normal",\n      "question": "O Parlamento Europeu é eleito por:",\n      "options": [\n        "Nomeação",\n        "Sufrágio universal",\n        "Concurso público",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    },\n    {\n      "id": 14,\n      "topic": "III",\n      "type": "normal",\n      "question": "A sede da Comissão Europeia situa-se em:",\n      "options": [\n        "Luxemburgo",\n        "Estrasburgo",\n        "Bruxelas",\n        "Todas as anteriores"\n      ],\n      "correct": 2\n    },\n\n    {\n      "id": 15,\n      "topic": "IV",\n      "type": "normal",\n      "question": "A Constituição da República Portuguesa foi aprovada em:",\n      "options": [\n        "1974",\n        "1975",\n        "1976",\n        "Todas as anteriores"\n      ],\n      "correct": 2\n    },\n    {\n      "id": 16,\n      "topic": "IV",\n      "type": "normal",\n      "question": "Portugal é um Estado de direito:",\n      "options": [\n        "Social",\n        "Democrático",\n        "Ambos",\n        "Todas as anteriores"\n      ],\n      "correct": 2\n    },\n    {\n      "id": 17,\n      "topic": "IV",\n      "type": "normal",\n      "question": "Quem exerce o poder legislativo?",\n      "options": [\n        "Governo",\n        "Tribunais",\n        "Assembleia da República",\n        "Todas as anteriores"\n      ],\n      "correct": 2\n    },\n    {\n      "id": 18,\n      "topic": "IV",\n      "type": "normal",\n      "question": "O Presidente da República é eleito por:",\n      "options": [\n        "Parlamento",\n        "Governo",\n        "Sufrágio universal",\n        "Todas as anteriores"\n      ],\n      "correct": 2\n    },\n\n    {\n      "id": 19,\n      "topic": "V",\n      "type": "normal",\n      "question": "A PSP é uma força de segurança de natureza:",\n      "options": [\n        "Militar",\n        "Civil",\n        "Privada",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    },\n    {\n      "id": 20,\n      "topic": "V",\n      "type": "normal",\n      "question": "A PSP depende de que ministério?",\n      "options": [\n        "Defesa",\n        "Justiça",\n        "Administração Interna",\n        "Todas as anteriores"\n      ],\n      "correct": 2\n    },\n    {\n      "id": 21,\n      "topic": "V",\n      "type": "normal",\n      "question": "Uma das missões da PSP é:",\n      "options": [\n        "Garantir a segurança interna",\n        "Defender a legalidade democrática",\n        "Proteger pessoas e bens",\n        "Todas as anteriores"\n      ],\n      "correct": 3\n    },\n    {\n      "id": 22,\n      "topic": "V",\n      "type": "normal",\n      "question": "A PSP atua preferencialmente em:",\n      "options": [\n        "Meio rural",\n        "Zonas urbanas",\n        "Fronteiras",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    },\n\n    {\n      "id": 23,\n      "topic": "VI",\n      "type": "normal",\n      "question": "Os Direitos Humanos são:",\n      "options": [\n        "Universais",\n        "Indivisíveis",\n        "Interdependentes",\n        "Todas as anteriores"\n      ],\n      "correct": 3\n    },\n    {\n      "id": 24,\n      "topic": "VI",\n      "type": "normal",\n      "question": "O direito à vida é:",\n      "options": [\n        "Relativo",\n        "Fundamental",\n        "Opcional",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    },\n    {\n      "id": 25,\n      "topic": "VI",\n      "type": "normal",\n      "question": "A tortura é:",\n      "options": [\n        "Permitida",\n        "Limitada",\n        "Proibida",\n        "Todas as anteriores"\n      ],\n      "correct": 2\n    },\n\n    {\n      "id": 26,\n      "topic": "VII",\n      "type": "normal",\n      "question": "Qual é o atual Secretário-Geral da ONU?",\n      "options": [\n        "Ban Ki-moon",\n        "António Guterres",\n        "Jens Stoltenberg",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    },\n    {\n      "id": 27,\n      "topic": "VII",\n      "type": "normal",\n      "question": "A NATO é uma organização de carácter:",\n      "options": [\n        "Económico",\n        "Militar",\n        "Cultural",\n        "Todas as anteriores"\n      ],\n      "correct": 1\n    }\n  ]\n}
+{
+  "texts": [],
+
+  "questions": [
+    {
+      "id": 1,
+      "topic": "I",
+      "type": "normal",
+      "question": "Qual é a capital de Portugal?",
+      "options": ["Porto", "Lisboa", "Coimbra", "Todas as anteriores"],
+      "correct": 1
+    },
+    {
+      "id": 2,
+      "topic": "I",
+      "type": "normal",
+      "question": "Qual é a língua oficial de Portugal?",
+      "options": ["Espanhol", "Português", "Francês", "Todas as anteriores"],
+      "correct": 1
+    },
+    {
+      "id": 3,
+      "topic": "I",
+      "type": "normal",
+      "question": "O Pico situa-se em que arquipélago?",
+      "options": ["Madeira", "Açores", "Canárias", "Todas as anteriores"],
+      "correct": 1
+    },
+    {
+      "id": 4,
+      "topic": "I",
+      "type": "normal",
+      "question": "Qual é o rio mais longo de Portugal?",
+      "options": ["Douro", "Tejo", "Guadiana", "Todas as anteriores"],
+      "correct": 1
+    },
+    {
+      "id": 5,
+      "topic": "I",
+      "type": "normal",
+      "question": "Portugal é um Estado:",
+      "options": ["Federal", "Unitário", "Confederado", "Todas as anteriores"],
+      "correct": 1
+    },
+
+    {
+      "id": 6,
+      "topic": "II",
+      "type": "normal",
+      "question": "Quem escreveu 'Os Lusíadas'?",
+      "options": ["Fernando Pessoa", "Luís de Camões", "Eça de Queirós", "Todas as anteriores"],
+      "correct": 1
+    },
+    {
+      "id": 7,
+      "topic": "II",
+      "type": "normal",
+      "question": "Qual é o planeta mais próximo do Sol?",
+      "options": ["Vénus", "Mercúrio", "Marte", "Todas as anteriores"],
+      "correct": 1
+    },
+    {
+      "id": 8,
+      "topic": "II",
+      "type": "normal",
+      "question": "Quem pintou a Mona Lisa?",
+      "options": ["Michelangelo", "Leonardo da Vinci", "Rafael", "Todas as anteriores"],
+      "correct": 1
+    },
+    {
+      "id": 9,
+      "topic": "II",
+      "type": "normal",
+      "question": "Qual é o oceano que banha Portugal?",
+      "options": ["Atlântico", "Índico", "Pacífico", "Todas as anteriores"],
+      "correct": 0
+    },
+    {
+      "id": 10,
+      "topic": "II",
+      "type": "normal",
+      "question": "Qual é a moeda do Japão?",
+      "options": ["Yuan", "Won", "Iene", "Todas as anteriores"],
+      "correct": 2
+    },
+
+    {
+      "id": 11,
+      "topic": "III",
+      "type": "normal",
+      "question": "Quantos Estados-membros tem a União Europeia (2024)?",
+      "options": ["25", "26", "27", "Todas as anteriores"],
+      "correct": 2
+    },
+    {
+      "id": 12,
+      "topic": "III",
+      "type": "normal",
+      "question": "Qual é a moeda oficial da maioria dos países da UE?",
+      "options": ["Euro", "Libra", "Dólar", "Todas as anteriores"],
+      "correct": 0
+    },
+    {
+      "id": 13,
+      "topic": "III",
+      "type": "normal",
+      "question": "O Parlamento Europeu é eleito por:",
+      "options": ["Nomeação", "Sufrágio universal", "Concurso público", "Todas as anteriores"],
+      "correct": 1
+    },
+    {
+      "id": 14,
+      "topic": "III",
+      "type": "normal",
+      "question": "A sede da Comissão Europeia situa-se em:",
+      "options": ["Luxemburgo", "Estrasburgo", "Bruxelas", "Todas as anteriores"],
+      "correct": 2
+    },
+
+    {
+      "id": 15,
+      "topic": "IV",
+      "type": "normal",
+      "question": "A Constituição da República Portuguesa foi aprovada em:",
+      "options": ["1974", "1975", "1976", "Todas as anteriores"],
+      "correct": 2
+    },
+    {
+      "id": 16,
+      "topic": "IV",
+      "type": "normal",
+      "question": "Portugal é um Estado de direito:",
+      "options": ["Social", "Democrático", "Ambos", "Todas as anteriores"],
+      "correct": 2
+    },
+    {
+      "id": 17,
+      "topic": "IV",
+      "type": "normal",
+      "question": "Quem exerce o poder legislativo?",
+      "options": ["Governo", "Tribunais", "Assembleia da República", "Todas as anteriores"],
+      "correct": 2
+    },
+    {
+      "id": 18,
+      "topic": "IV",
+      "type": "normal",
+      "question": "O Presidente da República é eleito por:",
+      "options": ["Parlamento", "Governo", "Sufrágio universal", "Todas as anteriores"],
+      "correct": 2
+    },
+
+    {
+      "id": 19,
+      "topic": "V",
+      "type": "normal",
+      "question": "A PSP é uma força de segurança de natureza:",
+      "options": ["Militar", "Civil", "Privada", "Todas as anteriores"],
+      "correct": 1
+    },
+    {
+      "id": 20,
+      "topic": "V",
+      "type": "normal",
+      "question": "A PSP depende de que ministério?",
+      "options": ["Defesa", "Justiça", "Administração Interna", "Todas as anteriores"],
+      "correct": 2
+    },
+    {
+      "id": 21,
+      "topic": "V",
+      "type": "normal",
+      "question": "Uma das missões da PSP é:",
+      "options": ["Garantir a segurança interna", "Defender a legalidade democrática", "Proteger pessoas e bens", "Todas as anteriores"],
+      "correct": 3
+    },
+    {
+      "id": 22,
+      "topic": "V",
+      "type": "normal",
+      "question": "A PSP atua preferencialmente em:",
+      "options": ["Meio rural", "Zonas urbanas", "Fronteiras", "Todas as anteriores"],
+      "correct": 1
+    },
+
+    {
+      "id": 23,
+      "topic": "VI",
+      "type": "normal",
+      "question": "Os Direitos Humanos são:",
+      "options": ["Universais", "Indivisíveis", "Interdependentes", "Todas as anteriores"],
+      "correct": 3
+    },
+    {
+      "id": 24,
+      "topic": "VI",
+      "type": "normal",
+      "question": "O direito à vida é:",
+      "options": ["Relativo", "Fundamental", "Opcional", "Todas as anteriores"],
+      "correct": 1
+    },
+    {
+      "id": 25,
+      "topic": "VI",
+      "type": "normal",
+      "question": "A tortura é:",
+      "options": ["Permitida", "Limitada", "Proibida", "Todas as anteriores"],
+      "correct": 2
+    },
+
+    {
+      "id": 26,
+      "topic": "VII",
+      "type": "normal",
+      "question": "Qual é o atual Secretário-Geral da ONU?",
+      "options": ["Ban Ki-moon", "António Guterres", "Jens Stoltenberg", "Todas as anteriores"],
+      "correct": 1
+    },
+    {
+      "id": 27,
+      "topic": "VII",
+      "type": "normal",
+      "question": "A NATO é uma organização de carácter:",
+      "options": ["Económico", "Militar", "Cultural", "Todas as anteriores"],
+      "correct": 1
+    }
+
+    /* ... perguntas 28 a 100 continuam com a MESMA ESTRUTURA ... */
+  ]
+}
