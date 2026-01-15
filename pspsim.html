@@ -40,20 +40,20 @@
         Simulação da Prova de Conhecimentos da Polícia de Segurança Pública
     </div>
 
-    <!-- 5 alternating stripes anchored at bottom-right corner, visible from corner-to-corner -->
+    <!-- 5 alternating stripes (blue-white-blue-white-blue), all 10px thick, 10px gaps, anchored bottom-right -->
     <div style="
         position: absolute;
         bottom: 0;
         right: 0;
-        width: 200px;  /* wider container so stripes can extend leftward without clipping early */
+        width: 220px;  /* wider to let left stripes show fully */
         height: 100%;
         pointer-events: none;
     ">
-        <!-- Stripe 1: background color (#003366), starts closest to right edge -->
+        <!-- Stripe 1: blue (#003366), closest to right corner -->
         <div style="
             position: absolute;
             width: 10px;
-            height: 200%;
+            height: 220%;
             background: #003366;
             transform: rotate(45deg);
             transform-origin: bottom right;
@@ -66,20 +66,20 @@
         <div style="
             position: absolute;
             width: 10px;
-            height: 200%;
+            height: 220%;
             background: white;
             transform: rotate(45deg);
             transform-origin: bottom right;
-            right: 30px;
+            right: 30px;   /* 20px step: 10px width + 10px gap */
             bottom: 0;
-            opacity: 0.8;
+            opacity: 0.9;
         "></div>
 
-        <!-- Stripe 3: background color -->
+        <!-- Stripe 3: blue -->
         <div style="
             position: absolute;
             width: 10px;
-            height: 200%;
+            height: 220%;
             background: #003366;
             transform: rotate(45deg);
             transform-origin: bottom right;
@@ -92,20 +92,20 @@
         <div style="
             position: absolute;
             width: 10px;
-            height: 200%;
+            height: 220%;
             background: white;
             transform: rotate(45deg);
             transform-origin: bottom right;
             right: 70px;
             bottom: 0;
-            opacity: 0.8;
+            opacity: 0.9;
         "></div>
 
-        <!-- Stripe 5: background color -->
+        <!-- Stripe 5: blue (leftmost, should now be visible as it frames the last white) -->
         <div style="
             position: absolute;
             width: 10px;
-            height: 200%;
+            height: 220%;
             background: #003366;
             transform: rotate(45deg);
             transform-origin: bottom right;
