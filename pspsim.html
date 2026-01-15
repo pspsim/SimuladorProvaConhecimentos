@@ -50,7 +50,7 @@ function shuffleArray(arr) {
 // ====== CARREGAR JSON ======
 async function loadQuestions() {
   try {
-    const res = await fetch("questions.json"); // aponta para o teu JSON
+    const res = await fetch("https://pspsim.github.io/SimuladorProvaConhecimentos/questions.json"); // aponta para o teu JSON
     const data = await res.json();
 
     // ====== ORGANIZAR POR TÓPICOS ======
