@@ -16,7 +16,7 @@
 </head>
 <body>
 <header style="
-    background-color: #003366;          /* dark PSP blue */
+    background-color: #003366;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
@@ -40,49 +40,77 @@
         Simulação da Prova de Conhecimentos da Polícia de Segurança Pública
     </div>
 
-    <!-- Exactly THREE thin white diagonal stripes – PSP patrol car inspired -->
+    <!-- 5 alternating stripes starting with background color at bottom-right corner -->
     <div style="
         position: absolute;
-        top: 0;
+        bottom: 0;
         right: 0;
         width: 140px;
         height: 100%;
     ">
-        <!-- Stripe 1 (rightmost) -->
+        <!-- Stripe 1: background color (dark blue), 10px -->
         <div style="
             position: absolute;
-            width: 10px;                /* thin like car markings */
+            width: 10px;
             height: 180%;
-            background: white;
+            background: #003366;
             transform: rotate(45deg);
-            transform-origin: top right;
+            transform-origin: bottom right;
             right: 10px;
-            top: -40%;
-            opacity: 0.8;
+            bottom: -40%;
+            opacity: 1;
         "></div>
-        <!-- Stripe 2 (middle) -->
+
+        <!-- Stripe 2: white, 10px -->
         <div style="
             position: absolute;
             width: 10px;
             height: 180%;
             background: white;
             transform: rotate(45deg);
-            transform-origin: top right;
-            right: 35px;                /* ~25px spacing */
-            top: -40%;
+            transform-origin: bottom right;
+            right: 30px;
+            bottom: -40%;
             opacity: 0.8;
         "></div>
-        <!-- Stripe 3 (leftmost in group) -->
+
+        <!-- Stripe 3: background color, 10px -->
+        <div style="
+            position: absolute;
+            width: 10px;
+            height: 180%;
+            background: #003366;
+            transform: rotate(45deg);
+            transform-origin: bottom right;
+            right: 50px;
+            bottom: -40%;
+            opacity: 1;
+        "></div>
+
+        <!-- Stripe 4: white, 10px -->
         <div style="
             position: absolute;
             width: 10px;
             height: 180%;
             background: white;
             transform: rotate(45deg);
-            transform-origin: top right;
-            right: 60px;
-            top: -40%;
+            transform-origin: bottom right;
+            right: 70px;
+            bottom: -40%;
             opacity: 0.8;
+        "></div>
+
+        <!-- Stripe 5: background color, 10px -->
+        <div style="
+            position: absolute;
+            width: 10px;
+            height: 180%;
+            background: #003366;
+            transform: rotate(45deg);
+            transform-origin: bottom right;
+            right: 90px;
+            bottom: -40%;
+            opacity: 1;
         "></div>
     </div>
 </header>
