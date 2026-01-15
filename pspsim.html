@@ -18,26 +18,33 @@
 <header style="
     background-color: #003366; /* Azul PSP */
     color: white;
-    font-size: 2.5rem;
-    font-weight: bold;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
     font-family: Arial, sans-serif;
+    position: relative;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    overflow: hidden;
 ">
-    SIMULADOR PSP
+    <div style="font-size: 3rem;">SIMULADOR PSP</div>
+    <div style="font-size: 1rem; font-style: italic; margin-top: 5px; text-align: center;">
+        Simulação da Prova de Conhecimentos da Polícia de Segurança Pública
+    </div>
+
     <!-- 3 riscas diagonais tipo logo PSP -->
     <div style="
         position: absolute;
-        top: 10px;
-        right: 10px;
-        width: 60px;
-        height: 80px;
+        top: 20px;
+        right: 20px;
+        width: 80px;
+        height: 110px;
     ">
         <div style="
             position: absolute;
-            width: 10px;
-            height: 80px;
+            width: 15px;
+            height: 110px;
             background-color: white;
             transform: rotate(45deg);
             top: 0;
@@ -45,21 +52,21 @@
         "></div>
         <div style="
             position: absolute;
-            width: 10px;
-            height: 80px;
+            width: 15px;
+            height: 110px;
             background-color: white;
             transform: rotate(45deg);
             top: 0;
-            right: 15px;
+            right: 25px;
         "></div>
         <div style="
             position: absolute;
-            width: 10px;
-            height: 80px;
+            width: 15px;
+            height: 110px;
             background-color: white;
             transform: rotate(45deg);
             top: 0;
-            right: 30px;
+            right: 50px;
         "></div>
     </div>
 </header>
