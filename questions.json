@@ -224,6 +224,630 @@
       "options": ["Económico", "Militar", "Cultural", "Todas as anteriores"],
       "correct": 1
     }
+    ,
+{
+  "id": 28,
+  "topic": "I",
+  "type": "normal",
+  "question": "Qual é a cidade mais populosa de Portugal?",
+  "options": ["Porto", "Lisboa", "Braga", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 29,
+  "topic": "I",
+  "type": "normal",
+  "question": "O arquipélago da Madeira situa-se no oceano:",
+  "options": ["Atlântico", "Pacífico", "Índico", "Todas as anteriores"],
+  "correct": 0
+},
+{
+  "id": 30,
+  "topic": "I",
+  "type": "normal",
+  "question": "Qual destes rios nasce em Portugal?",
+  "options": ["Tejo", "Douro", "Sado", "Todas as anteriores"],
+  "correct": 2
+},
+
+{
+  "id": 31,
+  "topic": "II",
+  "type": "normal",
+  "question": "Quem escreveu 'Mensagem'?",
+  "options": ["Fernando Pessoa", "Camilo Castelo Branco", "Eça de Queirós", "Todas as anteriores"],
+  "correct": 0
+},
+{
+  "id": 32,
+  "topic": "II",
+  "type": "normal",
+  "question": "Qual é o maior planeta do sistema solar?",
+  "options": ["Saturno", "Júpiter", "Neptuno", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 33,
+  "topic": "II",
+  "type": "normal",
+  "question": "A água ferve a que temperatura (nível do mar)?",
+  "options": ["90ºC", "95ºC", "100ºC", "Todas as anteriores"],
+  "correct": 2
+},
+
+{
+  "id": 34,
+  "topic": "III",
+  "type": "normal",
+  "question": "Portugal aderiu à União Europeia em:",
+  "options": ["1985", "1986", "1987", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 35,
+  "topic": "III",
+  "type": "normal",
+  "question": "O Banco Central Europeu tem sede em:",
+  "options": ["Paris", "Bruxelas", "Frankfurt", "Todas as anteriores"],
+  "correct": 2
+},
+{
+  "id": 36,
+  "topic": "III",
+  "type": "normal",
+  "question": "A UE baseia-se nos valores de:",
+  "options": ["Liberdade", "Democracia", "Estado de direito", "Todas as anteriores"],
+  "correct": 3
+},
+
+{
+  "id": 37,
+  "topic": "IV",
+  "type": "normal",
+  "question": "A soberania reside em:",
+  "options": ["No Governo", "No Presidente", "No povo", "Todas as anteriores"],
+  "correct": 2
+},
+{
+  "id": 38,
+  "topic": "IV",
+  "type": "normal",
+  "question": "O poder judicial é exercido por:",
+  "options": ["Tribunais", "Governo", "Assembleia", "Todas as anteriores"],
+  "correct": 0
+},
+{
+  "id": 39,
+  "topic": "IV",
+  "type": "normal",
+  "question": "A revisão constitucional compete a:",
+  "options": ["Presidente", "Tribunais", "Assembleia da República", "Todas as anteriores"],
+  "correct": 2
+},
+
+{
+  "id": 40,
+  "topic": "V",
+  "type": "normal",
+  "question": "A PSP tem competências em matéria de:",
+  "options": ["Ordem pública", "Investigação criminal", "Fiscalização administrativa", "Todas as anteriores"],
+  "correct": 3
+},
+{
+  "id": 41,
+  "topic": "V",
+  "type": "normal",
+  "question": "O uso da força pela PSP deve ser:",
+  "options": ["Necessário", "Proporcional", "Adequado", "Todas as anteriores"],
+  "correct": 3
+},
+{
+  "id": 42,
+  "topic": "V",
+  "type": "normal",
+  "question": "A PSP atua no respeito pelos princípios de:",
+  "options": ["Legalidade", "Imparcialidade", "Proporcionalidade", "Todas as anteriores"],
+  "correct": 3
+},
+
+{
+  "id": 43,
+  "topic": "VI",
+  "type": "normal",
+  "question": "A dignidade da pessoa humana é:",
+  "options": ["Relativa", "Negociável", "Inviolável", "Todas as anteriores"],
+  "correct": 2
+},
+{
+  "id": 44,
+  "topic": "VI",
+  "type": "normal",
+  "question": "O direito à liberdade termina quando:",
+  "options": ["O Estado decide", "Colide com direitos de outros", "É inconveniente", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 45,
+  "topic": "VI",
+  "type": "normal",
+  "question": "A igualdade significa:",
+  "options": ["Tratamento idêntico absoluto", "Ausência de discriminação", "Uniformidade total", "Todas as anteriores"],
+  "correct": 1
+},
+
+{
+  "id": 46,
+  "topic": "VII",
+  "type": "normal",
+  "question": "Qual é o continente mais populoso?",
+  "options": ["África", "Europa", "Ásia", "Todas as anteriores"],
+  "correct": 2
+},
+{
+  "id": 47,
+  "topic": "VII",
+  "type": "normal",
+  "question": "A ONU foi criada em:",
+  "options": ["1945", "1950", "1960", "Todas as anteriores"],
+  "correct": 0
+},
+{
+  "id": 48,
+  "topic": "VII",
+  "type": "normal",
+  "question": "A Assembleia Geral da ONU reúne:",
+  "options": ["Alguns países", "Apenas potências", "Todos os Estados-membros", "Todas as anteriores"],
+  "correct": 2
+},
+
+{
+  "id": 49,
+  "topic": "I",
+  "type": "normal",
+  "question": "O clima predominante em Portugal é:",
+  "options": ["Continental", "Mediterrânico", "Tropical", "Todas as anteriores"],
+  "correct": 1
+},
+
+{
+  "id": 50,
+  "topic": "II",
+  "type": "normal",
+  "question": "Quem foi Albert Einstein?",
+  "options": ["Pintor", "Escritor", "Cientista", "Todas as anteriores"],
+  "correct": 2
+}
+,
+{
+  "id": 51,
+  "topic": "I",
+  "type": "normal",
+  "question": "Qual é a fronteira natural mais extensa de Portugal?",
+  "options": ["Oceano Atlântico", "Rio Tejo", "Rio Douro", "Todas as anteriores"],
+  "correct": 0
+},
+{
+  "id": 52,
+  "topic": "I",
+  "type": "normal",
+  "question": "Qual é o distrito mais a sul de Portugal continental?",
+  "options": ["Beja", "Faro", "Setúbal", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 53,
+  "topic": "I",
+  "type": "normal",
+  "question": "Os Açores são compostos por quantas ilhas?",
+  "options": ["7", "8", "9", "Todas as anteriores"],
+  "correct": 2
+},
+
+{
+  "id": 54,
+  "topic": "II",
+  "type": "normal",
+  "question": "Quem pintou a Mona Lisa?",
+  "options": ["Michelangelo", "Leonardo da Vinci", "Rafael", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 55,
+  "topic": "II",
+  "type": "normal",
+  "question": "Qual é o símbolo químico do oxigénio?",
+  "options": ["Ox", "O", "Og", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 56,
+  "topic": "II",
+  "type": "normal",
+  "question": "A Terra gira em torno de:",
+  "options": ["Da Lua", "Do Sol", "De Marte", "Todas as anteriores"],
+  "correct": 1
+},
+
+{
+  "id": 57,
+  "topic": "III",
+  "type": "normal",
+  "question": "O Conselho Europeu é composto por:",
+  "options": ["Chefes de Estado ou Governo", "Deputados europeus", "Juízes europeus", "Todas as anteriores"],
+  "correct": 0
+},
+{
+  "id": 58,
+  "topic": "III",
+  "type": "normal",
+  "question": "O Parlamento Europeu tem funções:",
+  "options": ["Legislativas", "Orçamentais", "De controlo político", "Todas as anteriores"],
+  "correct": 3
+},
+{
+  "id": 59,
+  "topic": "III",
+  "type": "normal",
+  "question": "A cidadania europeia é atribuída a:",
+  "options": ["Residentes", "Nacionais dos Estados-membros", "Imigrantes legais", "Todas as anteriores"],
+  "correct": 1
+},
+
+{
+  "id": 60,
+  "topic": "IV",
+  "type": "normal",
+  "question": "O Presidente da República é eleito por:",
+  "options": ["Sufrágio direto", "Assembleia da República", "Governo", "Todas as anteriores"],
+  "correct": 0
+},
+{
+  "id": 61,
+  "topic": "IV",
+  "type": "normal",
+  "question": "A Assembleia da República é composta por:",
+  "options": ["Ministros", "Deputados", "Juízes", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 62,
+  "topic": "IV",
+  "type": "normal",
+  "question": "O Governo é politicamente responsável perante:",
+  "options": ["Tribunais", "Presidente", "Assembleia da República", "Todas as anteriores"],
+  "correct": 2
+},
+
+{
+  "id": 63,
+  "topic": "V",
+  "type": "normal",
+  "question": "A PSP depende organicamente de que ministério?",
+  "options": ["Ministério da Defesa", "Ministério da Administração Interna", "Ministério da Justiça", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 64,
+  "topic": "V",
+  "type": "normal",
+  "question": "A PSP exerce funções em meio:",
+  "options": ["Urbano", "Rural", "Marítimo", "Todas as anteriores"],
+  "correct": 0
+},
+{
+  "id": 65,
+  "topic": "V",
+  "type": "normal",
+  "question": "O agente da PSP deve agir com:",
+  "options": ["Autoridade", "Disciplina", "Respeito pelos cidadãos", "Todas as anteriores"],
+  "correct": 3
+},
+
+{
+  "id": 66,
+  "topic": "VI",
+  "type": "normal",
+  "question": "O direito à vida é:",
+  "options": ["Suspensível", "Condicionado", "Inviolável", "Todas as anteriores"],
+  "correct": 2
+},
+{
+  "id": 67,
+  "topic": "VI",
+  "type": "normal",
+  "question": "A tortura é:",
+  "options": ["Permitida em exceções", "Proibida", "Aceitável em guerra", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 68,
+  "topic": "VI",
+  "type": "normal",
+  "question": "Os direitos fundamentais aplicam-se a:",
+  "options": ["Cidadãos portugueses", "Estrangeiros", "Apátridas", "Todas as anteriores"],
+  "correct": 3
+},
+
+{
+  "id": 69,
+  "topic": "VII",
+  "type": "normal",
+  "question": "Qual destes é um órgão da ONU?",
+  "options": ["Conselho de Segurança", "Tribunal Penal Internacional", "Banco Mundial", "Todas as anteriores"],
+  "correct": 0
+},
+{
+  "id": 70,
+  "topic": "VII",
+  "type": "normal",
+  "question": "A NATO é uma organização de carácter:",
+  "options": ["Económico", "Militar", "Humanitário", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 71,
+  "topic": "VII",
+  "type": "normal",
+  "question": "Portugal é membro da NATO desde:",
+  "options": ["1949", "1955", "1960", "Todas as anteriores"],
+  "correct": 0
+},
+
+{
+  "id": 72,
+  "topic": "I",
+  "type": "normal",
+  "question": "Qual é o ponto mais alto de Portugal continental?",
+  "options": ["Serra da Estrela", "Pico", "Gerês", "Todas as anteriores"],
+  "correct": 0
+},
+{
+  "id": 73,
+  "topic": "I",
+  "type": "normal",
+  "question": "O rio Tejo desagua em:",
+  "options": ["Porto", "Lisboa", "Setúbal", "Todas as anteriores"],
+  "correct": 1
+},
+
+{
+  "id": 74,
+  "topic": "II",
+  "type": "normal",
+  "question": "Quem foi Marie Curie?",
+  "options": ["Escritora", "Cientista", "Política", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 75,
+  "topic": "II",
+  "type": "normal",
+  "question": "O número PI é aproximadamente:",
+  "options": ["2.14", "3.14", "4.14", "Todas as anteriores"],
+  "correct": 1
+},
+
+{
+  "id": 76,
+  "topic": "III",
+  "type": "normal",
+  "question": "O Tratado de Lisboa entrou em vigor em:",
+  "options": ["2007", "2009", "2011", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 77,
+  "topic": "III",
+  "type": "normal",
+  "question": "A Comissão Europeia tem função:",
+  "options": ["Executiva", "Judicial", "Legislativa exclusiva", "Todas as anteriores"],
+  "correct": 0
+},
+
+{
+  "id": 78,
+  "topic": "IV",
+  "type": "normal",
+  "question": "O estado de sítio pode ser declarado por:",
+  "options": ["Governo", "Presidente", "Assembleia", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 79,
+  "topic": "IV",
+  "type": "normal",
+  "question": "Os tribunais administram justiça em nome de:",
+  "options": ["Governo", "Presidente", "Povo", "Todas as anteriores"],
+  "correct": 2
+},
+
+{
+  "id": 80,
+  "topic": "V",
+  "type": "normal",
+  "question": "A PSP coopera com:",
+  "options": ["GNR", "PJ", "Polícias estrangeiras", "Todas as anteriores"],
+  "correct": 3
+},
+
+{
+  "id": 81,
+  "topic": "VI",
+  "type": "normal",
+  "question": "O princípio da proporcionalidade aplica-se a:",
+  "options": ["Uso da força", "Atos administrativos", "Limitação de direitos", "Todas as anteriores"],
+  "correct": 3
+},
+
+{
+  "id": 82,
+  "topic": "VII",
+  "type": "normal",
+  "question": "Qual é a capital dos Estados Unidos?",
+  "options": ["Nova Iorque", "Washington D.C.", "Los Angeles", "Todas as anteriores"],
+  "correct": 1
+},
+{
+  "id": 83,
+  "topic": "VII",
+  "type": "normal",
+  "question": "A União Africana é composta por países de:",
+  "options": ["África", "Europa", "Ásia", "Todas as anteriores"],
+  "correct": 0
+},
+
+{
+  "id": 84,
+  "topic": "I",
+  "type": "normal",
+  "question": "Portugal tem quantos distritos no continente?",
+  "options": ["16", "18", "20", "Todas as anteriores"],
+  "correct": 1
+},
+
+{
+  "id": 85,
+  "topic": "II",
+  "type": "normal",
+  "question": "Qual destes é um gás nobre?",
+  "options": ["Oxigénio", "Azoto", "Hélio", "Todas as anteriores"],
+  "correct": 2
+},
+
+{
+  "id": 86,
+  "topic": "III",
+  "type": "normal",
+  "question": "A livre circulação aplica-se a:",
+  "options": ["Pessoas", "Bens", "Serviços", "Todas as anteriores"],
+  "correct": 3
+},
+
+{
+  "id": 87,
+  "topic": "IV",
+  "type": "normal",
+  "question": "A Constituição é a lei:",
+  "options": ["Mais recente", "Mais votada", "Suprema", "Todas as anteriores"],
+  "correct": 2
+},
+
+{
+  "id": 88,
+  "topic": "V",
+  "type": "normal",
+  "question": "O uniforme da PSP simboliza:",
+  "options": ["Autoridade", "Serviço público", "Disciplina", "Todas as anteriores"],
+  "correct": 3
+},
+
+{
+  "id": 89,
+  "topic": "VI",
+  "type": "normal",
+  "question": "O direito de reunião é:",
+  "options": ["Proibido", "Condicionado", "Garantido", "Todas as anteriores"],
+  "correct": 2
+},
+
+{
+  "id": 90,
+  "topic": "VII",
+  "type": "normal",
+  "question": "O G20 reúne as maiores economias:",
+  "options": ["Da Europa", "Do mundo", "Da OCDE", "Todas as anteriores"],
+  "correct": 1
+},
+
+{
+  "id": 91,
+  "topic": "I",
+  "type": "normal",
+  "question": "O Algarve situa-se a:",
+  "options": ["Norte", "Centro", "Sul", "Todas as anteriores"],
+  "correct": 2
+},
+
+{
+  "id": 92,
+  "topic": "II",
+  "type": "normal",
+  "question": "Qual é o órgão responsável pela respiração?",
+  "options": ["Coração", "Pulmões", "Rins", "Todas as anteriores"],
+  "correct": 1
+},
+
+{
+  "id": 93,
+  "topic": "III",
+  "type": "normal",
+  "question": "O Tribunal de Justiça da UE garante:",
+  "options": ["Aplicação do direito da UE", "Política externa", "Defesa comum", "Todas as anteriores"],
+  "correct": 0
+},
+
+{
+  "id": 94,
+  "topic": "IV",
+  "type": "normal",
+  "question": "A revisão constitucional exige maioria:",
+  "options": ["Simples", "Qualificada", "Absoluta", "Todas as anteriores"],
+  "correct": 1
+},
+
+{
+  "id": 95,
+  "topic": "V",
+  "type": "normal",
+  "question": "A missão principal da PSP é:",
+  "options": ["Garantir segurança", "Manter ordem pública", "Proteger cidadãos", "Todas as anteriores"],
+  "correct": 3
+},
+
+{
+  "id": 96,
+  "topic": "VI",
+  "type": "normal",
+  "question": "O direito à integridade física protege contra:",
+  "options": ["Violência", "Tortura", "Maus-tratos", "Todas as anteriores"],
+  "correct": 3
+},
+
+{
+  "id": 97,
+  "topic": "VII",
+  "type": "normal",
+  "question": "A Organização Mundial da Saúde pertence à:",
+  "options": ["NATO", "ONU", "UE", "Todas as anteriores"],
+  "correct": 1
+},
+
+{
+  "id": 98,
+  "topic": "I",
+  "type": "normal",
+  "question": "O clima mediterrânico caracteriza-se por:",
+  "options": ["Verões quentes", "Invernos suaves", "Pouca chuva no verão", "Todas as anteriores"],
+  "correct": 3
+},
+
+{
+  "id": 99,
+  "topic": "II",
+  "type": "normal",
+  "question": "Qual destes números é primo?",
+  "options": ["4", "6", "7", "Todas as anteriores"],
+  "correct": 2
+},
+
+{
+  "id": 100,
+  "topic": "III",
+  "type": "normal",
+  "question": "A UE promove a cooperação entre Estados em matéria de:",
+  "options": ["Economia", "Justiça", "Segurança", "Todas as anteriores"],
+  "correct": 3
+}
 
   ]
 }
