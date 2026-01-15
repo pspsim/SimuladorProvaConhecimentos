@@ -44,49 +44,31 @@
         Simulação da Prova de Conhecimentos da Polícia de Segurança Pública
     </div>
 
-<!-- BLOCO DE FAIXAS (REALMENTE NO CANTO) -->
-<div style="
-    position: absolute;
-    bottom: -25px;
-    right: -100px;              /* AGORA SIM: ancorado ao canto */
-    width: 200px;          /* mais estreito = menos invasão no centro */
-    height: 240px;
-    transform-origin: bottom right; /* <-- chave do problema */
-    transform: rotate(18deg) translateX(40px); /* empurra as riscas para o canto */
-    pointer-events: none;
-    background: linear-gradient(
-        to right,
-        #003366 0%,
-        #003366 28%,
-        white 28%,
-        white 38%,
-        #003366 38%,
-        #003366 50%,
-        white 50%,
-        white 58%,
-        #003366 58%,
-        #003366 100%
-    );
-"></div>
-    background: linear-gradient(
-        to right,
-        #003366 0%,
-        #003366 20%,
-        white 20%,
-        white 27%,
-        #003366 27%,
-        #003366 36%,
-        white 36%,
-        white 42%,
-        #003366 42%,
-        #003366 49%,
-        white 49%,
-        white 55%,
-        #003366 55%,
-        #003366 100%
-    );
-"></div>
-    </div>
+    <!-- BLOCO DE FAIXAS (CORREÇÃO FINAL - CANTO DIREITO) -->
+    <div style="
+        position: absolute;
+        bottom: -22px;
+        right: -20px;           /* quase colado ao canto */
+        width: 240px;           /* estreito = não invade o centro */
+        height: 230px;
+        transform-origin: bottom right;
+        transform: rotate(17deg);
+        pointer-events: none;
+        background: linear-gradient(
+            to right,
+            #003366 0%,
+            #003366 35%,
+            white 35%,
+            white 43%,
+            #003366 43%,
+            #003366 52%,
+            white 52%,
+            white 58%,
+            #003366 58%,
+            #003366 100%
+        );
+    "></div>
+
 </header>
 <div id="timer">02:00:00</div>
 <form id="quizForm"></form>
