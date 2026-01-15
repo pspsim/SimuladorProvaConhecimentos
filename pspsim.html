@@ -94,11 +94,20 @@ topicsData.forEach((topic,tIdx)=>{
     } else shuffle(opts);
 
     opts.forEach((opt,i)=>{
-      const label=document.createElement("label");
-      label.innerHTML=`${String.fromCharCode(65+i)}) 
-        <input type="radio" name="q_${testQuestions.length}" value="${String.fromCharCode(65+i)}"> ${opt}`;
-      div.appendChild(label);
-    });
+  const wrapper = document.createElement("div");
+  wrapper.style.marginBottom = "6px";
+
+  const label = document.createElement("label");
+  label.style.cursor = "pointer";
+
+  label.innerHTML = `
+    <input type="radio" name="q_${testQuestions.length}" value="${String.fromCharCode(65+i)}">
+    <strong>${String.fromCharCode(65+i)})</strong> ${opt}
+  `;
+
+  wrapper.appendChild(label);
+  div.appendChild(wrapper);
+});
 
     quizForm.appendChild(div);
 
