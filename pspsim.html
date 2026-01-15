@@ -20,7 +20,7 @@
 <body>
 
 <header>
-  <div class="title">SIMULADOR PSP</div>
+  <div class="title">SIMULADOR :PSP</div>
   <div class="subtitle">Simulação da Prova de Conhecimentos da Polícia de Segurança Pública</div>
   <div class="stripes"></div>
 </header>
@@ -31,162 +31,160 @@
 <div id="result"></div>
 
 <script>
-// ================= JSON EMBUTIDO =================
+// ===================== ARRAY DE PERGUNTAS =====================
 const questionsData = [
-  {"id":1,"topic":"I","question":"Qual é a capital de Portugal?","options":["Porto","Lisboa","Coimbra","Todas as anteriores"],"correct":1},
-  {"id":2,"topic":"I","question":"Qual é a língua oficial de Portugal?","options":["Espanhol","Português","Francês","Todas as anteriores"],"correct":1},
-  {"id":3,"topic":"I","question":"O Pico situa-se em que arquipélago?","options":["Madeira","Açores","Canárias","Todas as anteriores"],"correct":1},
-  {"id":4,"topic":"I","question":"Qual é o rio mais longo de Portugal?","options":["Douro","Tejo","Guadiana","Todas as anteriores"],"correct":1},
-  {"id":5,"topic":"I","question":"Portugal é um Estado:","options":["Federal","Unitário","Confederado","Todas as anteriores"],"correct":1},
-  {"id":6,"topic":"II","question":"Quem escreveu 'Os Lusíadas'?","options":["Fernando Pessoa","Luís de Camões","Eça de Queirós","Todas as anteriores"],"correct":1},
-  {"id":7,"topic":"II","question":"Qual é o planeta mais próximo do Sol?","options":["Vénus","Mercúrio","Marte","Todas as anteriores"],"correct":1},
-  {"id":8,"topic":"II","question":"Quem pintou a Mona Lisa?","options":["Michelangelo","Leonardo da Vinci","Rafael","Todas as anteriores"],"correct":1},
-  {"id":9,"topic":"II","question":"Qual é o oceano que banha Portugal?","options":["Atlântico","Índico","Pacífico","Todas as anteriores"],"correct":0},
-  {"id":10,"topic":"II","question":"Qual é a moeda do Japão?","options":["Yuan","Won","Iene","Todas as anteriores"],"correct":2}
-  // ... coloca aqui todas as 100 perguntas como tens no JSON original
+  { "id": 1, "topic": "I", "question": "Qual é a capital de Portugal?", "options": ["Porto", "Lisboa", "Coimbra", "Todas as anteriores"], "correct": 1 },
+  { "id": 2, "topic": "I", "question": "Qual é a língua oficial de Portugal?", "options": ["Espanhol", "Português", "Francês", "Todas as anteriores"], "correct": 1 },
+  { "id": 3, "topic": "I", "question": "O Pico situa-se em que arquipélago?", "options": ["Madeira", "Açores", "Canárias", "Todas as anteriores"], "correct": 1 },
+  { "id": 4, "topic": "II", "question": "Quem escreveu 'Os Lusíadas'?", "options": ["Fernando Pessoa", "Luís de Camões", "Eça de Queirós", "Todas as anteriores"], "correct": 1 },
+  { "id": 5, "topic": "II", "question": "Qual é o planeta mais próximo do Sol?", "options": ["Vénus", "Mercúrio", "Marte", "Todas as anteriores"], "correct": 1 },
+  { "id": 6, "topic": "III", "question": "Quantos Estados-membros tem a União Europeia (2024)?", "options": ["25", "26", "27", "Todas as anteriores"], "correct": 2 },
+  { "id": 7, "topic": "IV", "question": "A Constituição da República Portuguesa foi aprovada em:", "options": ["1974", "1975", "1976", "Todas as anteriores"], "correct": 2 },
+  { "id": 8, "topic": "V", "question": "A PSP é uma força de segurança de natureza:", "options": ["Militar", "Civil", "Privada", "Todas as anteriores"], "correct": 1 },
+  { "id": 9, "topic": "VI", "question": "Os Direitos Humanos são:", "options": ["Universais", "Indivisíveis", "Interdependentes", "Todas as anteriores"], "correct": 3 },
+  { "id": 10, "topic": "VII", "question": "Qual é o atual Secretário-Geral da ONU?", "options": ["Ban Ki-moon", "António Guterres", "Jens Stoltenberg", "Todas as anteriores"], "correct": 1 }
+  // ... continua adicionando todas as restantes perguntas até 100 ...
 ];
-// ===============================================
 
-// ====== FUNÇÃO EMBARALHAR ======
-function shuffleArray(arr){
-  for(let i=arr.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [arr[i], arr[j]]=[arr[j], arr[i]];
+// ===================== FUNÇÃO PARA EMBARALHAR =====================
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
 }
 
-// ====== INICIALIZAR QUIZ ======
-function initQuiz(data){
-  const quizForm = document.getElementById("quizForm");
-  const testQuestions = [];
+// ===================== CRIAR QUIZ =====================
+const quizForm = document.getElementById("quizForm");
+const timerDiv = document.getElementById("timer");
+const submitBtn = document.getElementById("submit");
+const resultDiv = document.getElementById("result");
 
-  // Agrupar por tópico
-  const topics = {};
-  data.forEach(q=>{
-    if(!topics[q.topic]) topics[q.topic]=[];
-    topics[q.topic].push(q);
-  });
+let testQuestions = [];
 
-  // Criar formulário
-  Object.keys(topics).forEach(topicKey=>{
-    const topicQuestions = shuffleArray(topics[topicKey]);
+// Agrupar perguntas por tópico
+const topics = {};
+questionsData.forEach(q => {
+  if (!topics[q.topic]) topics[q.topic] = [];
+  topics[q.topic].push(q);
+});
 
-    // Título do tópico
-    const h2=document.createElement("h2");
-    h2.textContent=`Tópico ${topicKey}`;
-    quizForm.appendChild(h2);
+// Criar formulário
+Object.keys(topics).forEach(topicKey => {
+  const topicQuestions = shuffleArray(topics[topicKey]);
 
-    topicQuestions.forEach(q=>{
-      const div=document.createElement("div");
-      div.className="question";
+  // Título do tópico
+  const h2 = document.createElement("h2");
+  h2.textContent = `Tópico ${topicKey}`;
+  quizForm.appendChild(h2);
 
-      const p=document.createElement("p");
-      p.textContent=q.question;
-      div.appendChild(p);
+  topicQuestions.forEach((q, idx) => {
+    const div = document.createElement("div");
+    div.className = "question";
 
-      // Embaralhar opções (manter "Todas as anteriores" no fim)
-      let opts=[...q.options];
-      let todasOption;
-      const todasIndex=opts.findIndex(o=>o.startsWith("Todas"));
-      if(todasIndex!==-1){
-        todasOption=opts.splice(todasIndex,1)[0];
-        opts=shuffleArray(opts);
-        opts.push(todasOption);
-      }else{
-        opts=shuffleArray(opts);
-      }
+    const p = document.createElement("p");
+    p.textContent = q.question;
+    div.appendChild(p);
 
-      opts.forEach((opt,i)=>{
-        const label=document.createElement("label");
-        label.innerHTML=`O ${String.fromCharCode(65+i)}) <input type="radio" name="q${q.id}" value="${i}"> ${opt}`;
-        div.appendChild(label);
-      });
+    // Embaralhar opções (manter "Todas as anteriores" no fim)
+    let opts = [...q.options];
+    let todasOption;
+    const todasIndex = opts.findIndex(o => o.startsWith("Todas"));
+    if (todasIndex !== -1) {
+      todasOption = opts.splice(todasIndex, 1)[0];
+      opts = shuffleArray(opts);
+      opts.push(todasOption);
+    } else {
+      opts = shuffleArray(opts);
+    }
 
-      quizForm.appendChild(div);
+    opts.forEach((opt, i) => {
+      const label = document.createElement("label");
+      label.innerHTML = `O ${String.fromCharCode(65 + i)}) <input type="radio" name="q${q.id}" value="${i}"> ${opt}`;
+      div.appendChild(label);
+    });
 
-      testQuestions.push({
-        inputName:`q${q.id}`,
-        correct:q.correct,
-        optionsRendered:opts,
-        questionDiv:div
-      });
+    quizForm.appendChild(div);
+
+    testQuestions.push({
+      inputName: `q${q.id}`,
+      correct: q.correct,
+      optionsRendered: opts,
+      questionDiv: div
     });
   });
+});
 
-  window.testQuestions=testQuestions; // global para correção
-}
-
-// ====== TIMER ======
-let time=2*60*60; // 2 horas
-const timerDiv=document.getElementById("timer");
+// ===================== TIMER =====================
+let time = 2 * 60 * 60; // 2 horas
 let timerInterval;
-function startTimer(){
-  timerInterval=setInterval(()=>{
-    const h=String(Math.floor(time/3600)).padStart(2,'0');
-    const m=String(Math.floor((time%3600)/60)).padStart(2,'0');
-    const s=String(time%60).padStart(2,'0');
-    timerDiv.textContent=`${h}:${m}:${s}`;
-    if(time<=0){
+function startTimer() {
+  timerInterval = setInterval(() => {
+    const h = String(Math.floor(time / 3600)).padStart(2, '0');
+    const m = String(Math.floor((time % 3600) / 60)).padStart(2, '0');
+    const s = String(time % 60).padStart(2, '0');
+    timerDiv.textContent = `${h}:${m}:${s}`;
+    if (time <= 0) {
       clearInterval(timerInterval);
       submitTest();
     }
     time--;
-  },1000);
+  }, 1000);
 }
 
-// ====== SUBMETER E CORRIGIR ======
-function submitTest(){
+// ===================== SUBMETER E CORRIGIR =====================
+function submitTest() {
   clearInterval(timerInterval);
-  let scoreCount=0;
+  let scoreCount = 0;
 
-  window.testQuestions.forEach(q=>{
-    q.questionDiv.querySelectorAll('.feedback').forEach(f=>f.remove());
-    q.questionDiv.style.border="2px solid #ccc";
+  testQuestions.forEach(q => {
+    // Limpar feedback antigo
+    q.questionDiv.querySelectorAll('.feedback').forEach(f => f.remove());
+    q.questionDiv.style.border = "2px solid #ccc";
 
-    const feedback=document.createElement("div");
-    feedback.className="feedback";
-    feedback.style.marginTop="8px";
-    feedback.style.fontWeight="bold";
+    const feedback = document.createElement("div");
+    feedback.className = "feedback";
+    feedback.style.marginTop = "8px";
+    feedback.style.fontWeight = "bold";
 
-    const selected=document.querySelector(`input[name="${q.inputName}"]:checked`);
-    if(selected){
-      const userIndex=parseInt(selected.value);
-      if(userIndex===q.correct){
+    const selected = document.querySelector(`input[name="${q.inputName}"]:checked`);
+    if (selected) {
+      const userIndex = parseInt(selected.value);
+      if (userIndex === q.correct) {
         scoreCount++;
-        q.questionDiv.style.border="2px solid green";
-        feedback.style.color="green";
-        feedback.textContent="✔ Resposta correta";
-      }else{
-        q.questionDiv.style.border="2px solid red";
-        feedback.style.color="red";
-        feedback.innerHTML=`
+        q.questionDiv.style.border = "2px solid green";
+        feedback.style.color = "green";
+        feedback.textContent = "✔ Resposta correta";
+      } else {
+        q.questionDiv.style.border = "2px solid red";
+        feedback.style.color = "red";
+        feedback.innerHTML = `
           ✘ Resposta errada<br>
-          A tua resposta: O ${String.fromCharCode(65+userIndex)}) ${q.optionsRendered[userIndex]}<br>
-          Resposta correta: O ${String.fromCharCode(65+q.correct)}) ${q.optionsRendered[q.correct]}
+          A tua resposta: O ${String.fromCharCode(65 + userIndex)}) ${q.optionsRendered[userIndex]}<br>
+          Resposta correta: O ${String.fromCharCode(65 + q.correct)}) ${q.optionsRendered[q.correct]}
         `;
       }
-    }else{
-      q.questionDiv.style.border="2px solid orange";
-      feedback.style.color="orange";
-      feedback.textContent="⚠ Pergunta não respondida";
+    } else {
+      q.questionDiv.style.border = "2px solid orange";
+      feedback.style.color = "orange";
+      feedback.textContent = "⚠ Pergunta não respondida";
     }
 
     q.questionDiv.appendChild(feedback);
   });
 
-  const finalScore=(scoreCount/window.testQuestions.length)*20;
-  document.getElementById("result").textContent=`Acertaste ${scoreCount}/${window.testQuestions.length} perguntas. Nota final: ${finalScore.toFixed(2)}/20`;
+  const finalScore = (scoreCount / testQuestions.length) * 20;
+  resultDiv.textContent = `Acertaste ${scoreCount}/${testQuestions.length} perguntas. Nota final: ${finalScore.toFixed(2)}/20`;
 }
 
-// ====== BOTÃO SUBMETER ======
-document.getElementById("submit").addEventListener("click",e=>{
+// ===================== EVENTO SUBMIT =====================
+submitBtn.addEventListener("click", e => {
   e.preventDefault();
   submitTest();
 });
 
-// ====== INICIAR ======
-initQuiz(questionsData);
+// ===================== INICIAR =====================
 startTimer();
 </script>
 </body>
