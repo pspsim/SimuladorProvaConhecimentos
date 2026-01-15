@@ -51,8 +51,23 @@
     right: -100px;              /* AGORA SIM: ancorado ao canto */
     width: 200px;          /* mais estreito = menos invasão no centro */
     height: 240px;
-    transform: rotate(20deg);
+    transform-origin: bottom right; /* <-- chave do problema */
+    transform: rotate(18deg) translateX(40px); /* empurra as riscas para o canto */
     pointer-events: none;
+    background: linear-gradient(
+        to right,
+        #003366 0%,
+        #003366 28%,
+        white 28%,
+        white 38%,
+        #003366 38%,
+        #003366 50%,
+        white 50%,
+        white 58%,
+        #003366 58%,
+        #003366 100%
+    );
+"></div>
     background: linear-gradient(
         to right,
         #003366 0%,
