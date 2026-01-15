@@ -4,10 +4,21 @@
 <meta charset="UTF-8">
 <title>Simulador PSP</title>
 <style>
-body { font-family: Arial, sans-serif; margin: 20px; background: #f1f1f1; }
-header {
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  h1 { text-align: center; }
+  .question { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+  .options { margin-top: 10px; }
+  .options label { display: block; margin-bottom: 5px; }
+  #timer { font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 20px; }
+  #submit { display: block; margin: 0 auto; padding: 10px 20px; font-size: 16px; }
+  #result { margin-top: 20px; font-size: 18px; font-weight: bold; text-align: center; }
+</style>
+</head>
+<body>
+<header style="
     background-color: #003366;
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
     position: relative;
     height: 140px;
     display: flex;
@@ -16,13 +27,25 @@ header {
     align-items: center;
     font-weight: bold;
     overflow: hidden;
-}
-header div.main { font-size: 2.8rem; letter-spacing: 1px; text-transform: uppercase; z-index: 2; }
-header div.sub { font-size: 1.05rem; font-style: italic; margin-top: 8px; text-align: center; max-width: 90%; z-index: 2; }
+">
 
-/* riscas brancas diagonais */
-header::after {
-    content: "";
+    <div style="font-size: 2.8rem; letter-spacing: 1px; text-transform: uppercase; z-index: 2;">
+        SIMULADOR PSP
+    </div>
+
+    <div style="
+        font-size: 1.05rem;
+        font-style: italic;
+        margin-top: 8px;
+        text-align: center;
+        max-width: 90%;
+        z-index: 2;
+    ">
+        Simulação da Prova de Conhecimentos da Polícia de Segurança Pública
+    </div>
+
+    <!-- BLOCO DE FAIXAS (AGORA COM 3 LINHAS BRANCAS VISÍVEIS) -->
+<div style="
     position: absolute;
     bottom: -60px;
     right: -20px;
@@ -30,27 +53,32 @@ header::after {
     height: 300px;
     transform-origin: bottom right;
     transform: rotate(17deg);
-    background: repeating-linear-gradient(
-        45deg,
-        white, white 12px,
-        #003366 12px, #003366 22px
-    );
-    opacity: 0.4;
     pointer-events: none;
-}
+    background: linear-gradient(
+        to right,
+        #003366 0%,
+        #003366 30%,
 
-.question { background: white; margin-bottom: 20px; padding: 15px; border-radius: 8px; max-width: 800px; }
-.options label { display: block; margin-bottom: 5px; cursor: pointer; }
-#timer { font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 20px; }
-#submit { display: block; margin: 0 auto; padding: 12px 25px; font-size: 16px; font-weight: bold; background: #003366; color: white; border: none; border-radius: 8px; cursor: pointer; }
-#result { margin-top: 20px; font-size: 18px; font-weight: bold; text-align: center; }
-</style>
-</head>
-<body>
+        white 30%,
+        white 38%,
 
-<header>
-  <div class="main">SIMULADOR PSP</div>
-  <div class="sub">Simulação da Prova de Conhecimentos da Polícia de Segurança Pública</div>
+        #003366 38%,
+        #003366 48%,
+
+        white 48%,
+        white 55%,
+
+        #003366 55%,
+        #003366 65%,
+
+        white 65%,
+        white 72%,
+
+        #003366 72%,
+        #003366 100%
+    );
+"></div>
+
 </header>
 
 <div id="timer">02:00:00</div>
