@@ -100,11 +100,21 @@ Object.keys(topics).forEach(topicKey => {
     }
 
     opts.forEach((opt, i) => {
-      const label = document.createElement("label");
-      label.innerHTML = `O ${String.fromCharCode(65 + i)}) <input type="radio" name="q${q.id}" value="${i}"> ${opt}`;
-      div.appendChild(label);
-    });
-
+  const divOpt = document.createElement("div");
+  divOpt.innerHTML = `O ${String.fromCharCode(65 + i)}) `;
+  
+  const input = document.createElement("input");
+  input.type = "radio";
+  input.name = `q${q.idx}`;
+  input.value = i;
+  
+  const span = document.createElement("span");
+  span.textContent = opt;
+  
+  divOpt.appendChild(input);
+  divOpt.appendChild(span);
+  div.appendChild(divOpt);
+});
     quizForm.appendChild(div);
 
     testQuestions.push({
