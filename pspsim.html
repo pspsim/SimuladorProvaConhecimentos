@@ -737,10 +737,10 @@ function submitTest() {
   const finalScore = (scoreCount / testQuestions.length) * 20;
   resultDiv.textContent = `Acertaste ${scoreCount}/${testQuestions.length} perguntas. Nota final: ${finalScore.toFixed(2)}/20`;
 // Mostrar Apto / Não Apto
-const aptoDiv = document.createElement("h2");
+const aptoDiv = document.createElement("div");
 aptoDiv.style.textAlign = "center";
 aptoDiv.style.marginTop = "10px";
-aptoDiv.style.fontSize = "2em"; // aumenta o tamanho
+aptoDiv.style.fontSize = "60px"; // aumenta o tamanho
 aptoDiv.style.color = finalScore >= 10 ? "green" : "red";
 aptoDiv.textContent = finalScore >= 10 ? "APTO" : "NÃO APTO";
 
