@@ -737,7 +737,8 @@ function submitTest() {
   const finalScore = (scoreCount / testQuestions.length) * 20;
   resultDiv.innerHTML = `
   Acertaste ${scoreCount}/${testQuestions.length} perguntas.<br>
-  <span style="font-size:2em">Nota final: <b>${finalScore.toFixed(2)}/20</b></span>
+  Nota final: <br>
+  <span style="font-size:2em"><b>${finalScore.toFixed(2)}/20</b></span>
 `;
 // Mostrar Apto / Não Apto
 const aptoDiv = document.createElement("div");
