@@ -700,7 +700,10 @@ if (selected) {
 } else {
   q.questionDiv.style.border = "2px solid orange";
   feedback.style.color = "orange";
-  feedback.textContent = "⚠ Pergunta não respondida";
+  feedback.innerHTML = `
+      ⚠ Pergunta não respondida<br>
+      Resposta correta: ${q.correct}
+    `;
 }
 
     q.questionDiv.appendChild(feedback);
