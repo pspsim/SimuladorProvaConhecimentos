@@ -597,7 +597,7 @@ function generateQuiz() {
   // Limpa quiz antigo
   quizForm.innerHTML = "";
   testQuestions = [];
-
+  let questionCounter = 1;
 
   Object.keys(topics).forEach(topicKey => {
     const topicQuestions = shuffleArray([...topics[topicKey]]); // copiar antes de embaralhar
@@ -606,8 +606,6 @@ function generateQuiz() {
     const h2 = document.createElement("h2");
     h2.textContent = `Tópico ${topicKey} - ${topicNames[topicKey]}`;
     quizForm.appendChild(h2);
-
-    let questionCounter = 1; // numeração por tópico
 
     topicQuestions.forEach(q => {
       const div = document.createElement("div");
