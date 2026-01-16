@@ -736,7 +736,20 @@ function submitTest() {
 
   const finalScore = (scoreCount / testQuestions.length) * 20;
   resultDiv.textContent = `Acertaste ${scoreCount}/${testQuestions.length} perguntas. Nota final: ${finalScore.toFixed(2)}/20`;
+// Mostrar Apto / Não Apto
+const aptoDiv = document.createElement("h2");
+aptoDiv.style.textAlign = "center";
+aptoDiv.style.marginTop = "10px";
+aptoDiv.style.fontSize = "2em"; // aumenta o tamanho
+aptoDiv.style.color = finalScore >= 10 ? "green" : "red";
+aptoDiv.textContent = finalScore >= 10 ? "APTO" : "NÃO APTO";
 
+// Remove antigo, se existir
+const oldApto = document.getElementById("aptoDiv");
+if (oldApto) oldApto.remove();
+aptoDiv.id = "aptoDiv";
+
+resultDiv.appendChild(aptoDiv);
   testSubmitted = true;
   submitBtn.textContent = "Novo Teste";
 }
