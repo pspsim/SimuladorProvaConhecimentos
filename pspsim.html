@@ -31,6 +31,7 @@
 <div id="result"></div>
 
 <script>
+let testSubmitted = false;
 // ===================== ARRAY DE PERGUNTAS =====================
 const questionsData = [
   { 
@@ -679,44 +680,80 @@ function submitTest() {
     feedback.style.fontWeight = "bold";
 
     const selected = document.querySelector(`input[name="${q.inputName}"]:checked`);
-if (selected) {
-  const userIndex = parseInt(selected.value);
-  const userAnswerText = q.optionsRendered[userIndex]; // pega o texto da opção selecionada
 
-  if (userAnswerText === q.correct) { // compara com o texto certo
-    scoreCount++;
-    q.questionDiv.style.border = "2px solid green";
-    feedback.style.color = "green";
-    feedback.textContent = "✔ Resposta correta";
-  } else {
-    q.questionDiv.style.border = "2px solid red";
-    feedback.style.color = "red";
-    feedback.innerHTML = `
-      ✘ Resposta errada<br>
-      A tua resposta: O ${String.fromCharCode(65 + userIndex)}) ${userAnswerText}<br>
-      Resposta correta: ${q.correct}
-    `;
-  }
-} else {
-  q.questionDiv.style.border = "2px solid orange";
-  feedback.style.color = "orange";
-  feedback.innerHTML = `
-      ⚠ Pergunta não respondida<br>
-      Resposta correta: ${q.correct}
-    `;
-}
+    if (selected) {
+      const userIndex = parseInt(selected.value);
+      const userAnswerText = q.optionsRendered[userIndex];
+
+      if (userAnswerText === q.correct) {
+        scoreCount++;
+        q.questionDiv.style.border = "2px solid green";
+        feedback.style.color = "green";
+        feedback.textContent = "✔ Resposta correta";
+      } else {
+        q.questionDiv.style.border = "2px solid red";
+        feedback.style.color = "red";
+        feedback.innerHTML = `
+          ✘ Resposta errada<br>
+          A tua resposta: O ${String.fromCharCode(65 + userIndex)}) ${userAnswerText}<br>
+          Resposta correta: ${q.correct}
+        `;
+      }
+    } else {
+      q.questionDiv.style.border = "2px solid orange";
+      feedback.style.color = "orange";
+      feedback.innerHTML = `
+          ⚠ Pergunta não respondida<br>
+          Resposta correta: ${q.correct}
+        `;
+    }
 
     q.questionDiv.appendChild(feedback);
+
+    // 🔒 BLOQUEAR OS INPUTS DESTA PERGUNTA
+    q.questionDiv.querySelectorAll("input[type=radio]").forEach(radio => {
+      radio.disabled = true;
+    });
   });
 
   const finalScore = (scoreCount / testQuestions.length) * 20;
   resultDiv.textContent = `Acertaste ${scoreCount}/${testQuestions.length} perguntas. Nota final: ${finalScore.toFixed(2)}/20`;
-}
 
+  // 🔄 MUDAR ESTADO DO TESTE
+  testSubmitted = true;
+  submitBtn.textContent = "Repetir Teste";
+
+}
+function resetTest() {
+  // Limpar resultados
+  resultDiv.textContent = "";
+
+  testQuestions.forEach(q => {
+    // Remover feedback
+    q.questionDiv.querySelectorAll('.feedback').forEach(f => f.remove());
+    q.questionDiv.style.border = "2px solid #ccc";
+
+    // Desmarcar respostas
+    q.questionDiv.querySelectorAll("input[type=radio]").forEach(radio => {
+      radio.checked = false;
+      radio.disabled = false; // 🔓 DESBLOQUEAR
+    });
+  });
+
+  // Voltar ao estado inicial
+  testSubmitted = false;
+  submitBtn.textContent = "Submeter Teste";
+  startTimer(); 
+}
 // ===================== EVENTO SUBMIT =====================
 submitBtn.addEventListener("click", e => {
   e.preventDefault();
-  submitTest();
+
+  if (!testSubmitted) {
+    submitTest();
+  } else {
+    resetTest();
+  }
 });
 
 // ===================== INICIAR =====================
