@@ -588,6 +588,8 @@ function generateQuiz() {
   quizForm.innerHTML = "";
   testQuestions = [];
 
+let questionCounter = 1; // numeração por tópico
+
   Object.keys(topics).forEach(topicKey => {
     const topicQuestions = shuffleArray([...topics[topicKey]]); // copiar antes de embaralhar
 
