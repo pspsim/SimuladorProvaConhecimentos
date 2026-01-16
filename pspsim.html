@@ -558,27 +558,28 @@ const questionsData = [
 { "id": 80, "topic": "VII", "question": "O Conselho da União Europeia e o Parlamento Europeu…", "options": ["negoceiam, aprovam e adotam conjuntamente a legislação europeia", "negoceiam, aprovam e adotam separadamente, a política europeia", "adotam, aprovam ou rejeitam pareceres conjuntamente", "legislam, aprovam e adotam separadamente a política europeia de segurança comum"], "correct": "negoceiam, aprovam e adotam conjuntamente a legislação europeia" }
 ];
 // ===================== FUNÇÃO PARA EMBARALHAR =====================
-let questionCounter = 1; // <-- CONTADOR GLOBAL
-
 Object.keys(topics).forEach(topicKey => {
   const topicQuestions = shuffleArray(topics[topicKey]);
 
+  // ✅ Coloca o título do tópico SEMPRE antes das perguntas
   const h2 = document.createElement("h2");
   h2.textContent = `Tópico ${topicKey}`;
   quizForm.appendChild(h2);
 
-  topicQuestions.forEach((q, idx) => {
+  // Contador para numerar perguntas 1,2,3…
+  let questionCounter = 1;
+
+  topicQuestions.forEach(q => {
     const div = document.createElement("div");
     div.className = "question";
     div.style.marginBottom = "15px";
 
     const p = document.createElement("p");
-    p.innerHTML = `${questionCounter}. ${q.question}`; // ✅ NUMERAÇÃO BONITA
+    p.innerHTML = `${questionCounter}. ${q.question}`; // numerar a pergunta
+    questionCounter++;
     div.appendChild(p);
 
-    questionCounter++; // ✅ AVANÇA PARA A PRÓXIMA PERGUNTA
-
-    // Embaralhar opções (manter "Todas..." no fim)
+    // Embaralhar opções mantendo "Todas as anteriores" no fim
     let opts = [...q.options];
     let todasOption;
     const todasIndex = opts.findIndex(o => o.startsWith("Todas"));
