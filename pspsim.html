@@ -596,7 +596,7 @@ Object.keys(topics).forEach(topicKey => {
     div.style.marginBottom = "15px";
 
     const p = document.createElement("p");
-    p.innerHTML = `${q.id}. ${q.question}`; // numerar a pergunta
+    p.innerHTML = `${index + 1}. ${q.question}`; // numerar a pergunta
     div.appendChild(p);
 
     // Embaralhar opções (manter "Todas as anteriores" no fim)
