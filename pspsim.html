@@ -558,74 +558,83 @@ const questionsData = [
 { "id": 80, "topic": "VII", "question": "O Conselho da União Europeia e o Parlamento Europeu…", "options": ["negoceiam, aprovam e adotam conjuntamente a legislação europeia", "negoceiam, aprovam e adotam separadamente, a política europeia", "adotam, aprovam ou rejeitam pareceres conjuntamente", "legislam, aprovam e adotam separadamente a política europeia de segurança comum"], "correct": "negoceiam, aprovam e adotam conjuntamente a legislação europeia" }
 ];
 // ===================== FUNÇÃO PARA EMBARALHAR =====================
-Object.keys(topics).forEach(topicKey => {
-  const topicQuestions = shuffleArray(topics[topicKey]);
+function generateQuiz() {
+  // Limpa quiz antigo
+  quizForm.innerHTML = "";
+  testQuestions = [];
 
-  // ✅ Coloca o título do tópico SEMPRE antes das perguntas
-  const h2 = document.createElement("h2");
-  h2.textContent = `Tópico ${topicKey}`;
-  quizForm.appendChild(h2);
+  Object.keys(topics).forEach(topicKey => {
+    const topicQuestions = shuffleArray(topics[topicKey]);
 
-  // Contador para numerar perguntas 1,2,3…
-  let questionCounter = 1;
+    // Título do tópico
+    const h2 = document.createElement("h2");
+    h2.textContent = `Tópico ${topicKey}`;
+    quizForm.appendChild(h2);
 
-  topicQuestions.forEach(q => {
-    const div = document.createElement("div");
-    div.className = "question";
-    div.style.marginBottom = "15px";
+    // Contador para numerar perguntas 1,2,3…
+    let questionCounter = 1;
 
-    const p = document.createElement("p");
-    p.innerHTML = `${questionCounter}. ${q.question}`; // numerar a pergunta
-    questionCounter++;
-    div.appendChild(p);
+    topicQuestions.forEach(q => {
+      const div = document.createElement("div");
+      div.className = "question";
+      div.style.marginBottom = "15px";
 
-    // Embaralhar opções mantendo "Todas as anteriores" no fim
-    let opts = [...q.options];
-    let todasOption;
-    const todasIndex = opts.findIndex(o => o.startsWith("Todas"));
-    if (todasIndex !== -1) {
-      todasOption = opts.splice(todasIndex, 1)[0];
-      opts = shuffleArray(opts);
-      opts.push(todasOption);
-    } else {
-      opts = shuffleArray(opts);
-    }
+      const p = document.createElement("p");
+      p.innerHTML = `${questionCounter}. ${q.question}`;
+      questionCounter++;
+      div.appendChild(p);
 
-    opts.forEach((opt, i) => {
-      const label = document.createElement("label");
-      label.style.display = "block";
-      label.style.marginBottom = "4px";
+      // Embaralhar opções mantendo "Todas as anteriores" no fim
+      let opts = [...q.options];
+      let todasOption;
+      const todasIndex = opts.findIndex(o => o.startsWith("Todas"));
+      if (todasIndex !== -1) {
+        todasOption = opts.splice(todasIndex, 1)[0];
+        opts = shuffleArray(opts);
+        opts.push(todasOption);
+      } else {
+        opts = shuffleArray(opts);
+      }
 
-      const letra = document.createElement("span");
-      letra.textContent = `O ${String.fromCharCode(65 + i)}) `;
+      opts.forEach((opt, i) => {
+        const label = document.createElement("label");
+        label.style.display = "block";
+        label.style.marginBottom = "4px";
 
-      const input = document.createElement("input");
-      input.type = "radio";
-      input.name = `q${q.id}`;
-      input.value = i;
-      input.style.marginLeft = "5px";
-      input.style.marginRight = "5px";
+        const letra = document.createElement("span");
+        letra.textContent = `O ${String.fromCharCode(65 + i)}) `;
 
-      label.appendChild(letra);
-      label.appendChild(input);
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = `q${q.id}`;
+        input.value = i;
+        input.style.marginLeft = "5px";
+        input.style.marginRight = "5px";
 
-      const texto = document.createElement("span");
-      texto.textContent = opt;
-      label.appendChild(texto);
+        label.appendChild(letra);
+        label.appendChild(input);
 
-      div.appendChild(label);
-    });
+        const texto = document.createElement("span");
+        texto.textContent = opt;
+        label.appendChild(texto);
 
-    quizForm.appendChild(div);
+        div.appendChild(label);
+      });
 
-    testQuestions.push({
-      inputName: `q${q.id}`,
-      correct: q.correct,
-      optionsRendered: opts,
-      questionDiv: div
+      quizForm.appendChild(div);
+
+      testQuestions.push({
+        inputName: `q${q.id}`,
+        correct: q.correct,
+        optionsRendered: opts,
+        questionDiv: div
+      });
     });
   });
-});
+}
+
+// ✅ Chamar a função uma vez para gerar o quiz na página
+generateQuiz();
 // ===================== TIMER =====================
 let time = 2 * 60 * 60; // 2 horas
 let timerInterval;
