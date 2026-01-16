@@ -735,7 +735,10 @@ function submitTest() {
   });
 
   const finalScore = (scoreCount / testQuestions.length) * 20;
-  resultDiv.textContent = `Acertaste ${scoreCount}/${testQuestions.length} perguntas. Nota final: ${finalScore.toFixed(2)}/20`;
+  resultDiv.innerHTML = `
+  Acertaste ${scoreCount}/${testQuestions.length} perguntas.<br>
+  <span style="font-size:1.5em">Nota final: ${finalScore.toFixed(2)}/20</span>
+`;
 // Mostrar Apto / Não Apto
 const aptoDiv = document.createElement("div");
 aptoDiv.style.textAlign = "center";
